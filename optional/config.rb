@@ -2,9 +2,9 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-configure :development do
-  activate :livereload
-end
+set :url_root, '<%= @base_url %>'
+
+ignore '/templates/*'
 
 activate :directory_indexes
 activate :pagination
@@ -12,9 +12,26 @@ activate :dato,
   token: '<%= @token %>',
   base_url: '<%= @base_url %>'
 
-set :url_root, '<%= @base_url %>'
+activate :external_pipeline,
+  name: :webpack,
+  command: build? ?
+    "./node_modules/webpack/bin/webpack.js --bail -p" :
+    "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+  source: ".tmp/dist",
+  latency: 1
 
-ignore '/templates/*'
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+  activate :minify_html
+  activate :search_engine_sitemap,
+    default_priority: 0.5,
+    default_change_frequency: 'weekly'
+end
+
+configure :development do
+  activate :livereload
+end
 
 # dato.articles.each do |article|
 #   proxy(
@@ -30,11 +47,3 @@ ignore '/templates/*'
 #   '/templates/articles.html'
 # )
 
-configure :build do
-  activate :minify_css
-  activate :minify_javascript
-  activate :minify_html
-  activate :search_engine_sitemap,
-    default_priority: 0.5,
-    default_change_frequency: 'weekly'
-end
