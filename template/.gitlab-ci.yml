@@ -1,0 +1,4 @@
+build:
+  script:
+  - bundle install --quiet --path /cache
+  - npm install

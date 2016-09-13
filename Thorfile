@@ -14,7 +14,7 @@ module Middleman
       @token = ask("Please insert your DatoCMS site read-only token:")
       @base_url = ask("What will be the base url of your site? (eg. https://www.mysite.com)")
 
-      template 'optional/config.ru', 'config.ru'
+      template 'optional/config.rb', 'config.rb'
     end
 
     def ask_about_livereload
