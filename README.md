@@ -1,1 +1,1 @@
-# middleman-template
+# Default Middleman Project Template
