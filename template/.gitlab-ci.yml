@@ -2,3 +2,5 @@ build:
   script:
   - bundle install --quiet --path /cache
   - npm install
+  - bundle exec middleman build
+  - bundle exec s3_website push
