@@ -1,0 +1,15 @@
+{
+  "name": "middleman-project",
+  "version": "1.0.0",
+  "description": "Another Middleman website",
+  "main": "index.js",
+  "scripts": {
+    "webfonts": "bemo-webfonts -s source/fonts/svg -f source/fonts -S source/stylesheets/variables/_icon-glyphs.scss"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bemo-scaffold": "1.0.2",
+    "bemo-webfonts": "1.0.1"
+  }
+}

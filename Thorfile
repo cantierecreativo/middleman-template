@@ -18,7 +18,9 @@ module Middleman
     end
 
     def setup_bemo
-
+      run "npm install"
+      run "./node_modules/.bin/bemo-scaffold -s source/stylesheets/"
+      run "npm run webfonts"
     end
   end
 end
