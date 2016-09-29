@@ -11,8 +11,10 @@ module Middleman
     end
 
     def ask_about_datocms_params
-      @token = ask('Please insert your DatoCMS site read-only token:')
-      @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
+      if yes?('Do you want to configure DatoCMS?')
+        @token = ask('Please insert your DatoCMS site read-only token:')
+        @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
+      end
 
       template 'optional/config.rb', 'config.rb'
     end

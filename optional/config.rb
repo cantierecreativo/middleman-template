@@ -8,9 +8,11 @@ ignore '/templates/*'
 
 activate :directory_indexes
 activate :pagination
+<%- if @token -%>
 activate :dato,
   token: '<%= @token %>',
   base_url: '<%= @base_url %>'
+<%- end -%>
 
 activate :external_pipeline,
   name: :webpack,
@@ -33,6 +35,7 @@ configure :development do
   activate :livereload
 end
 
+<%- if @token -%>
 # dato.articles.each do |article|
 #   proxy(
 #     '/articles/#{article.slug}.html',
@@ -46,4 +49,4 @@ end
 #   '/articles',
 #   '/templates/articles.html'
 # )
-
+<%- end -%>
