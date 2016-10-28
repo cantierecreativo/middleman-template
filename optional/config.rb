@@ -23,8 +23,6 @@ activate :external_pipeline,
   latency: 1
 
 configure :build do
-  activate :minify_css
-  activate :minify_javascript
   activate :minify_html
   activate :search_engine_sitemap,
     default_priority: 0.5,
