@@ -1,5 +1,4 @@
 .DS_Store
-/Gemfile.lock
 /build
 /node_modules/*
 /npm-debug.log
