@@ -25,10 +25,10 @@ gzip:
 - .woff2
 
 # Do not upload these files
-exclude_from_upload:
-- bin
-- Gemfile
-- Gemfile.lock
-- node_modules
-- vendor
 
+exclude_from_upload:
+  - ^bin$
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - ^vendor$
