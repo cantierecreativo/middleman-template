@@ -49,4 +49,23 @@ end
 #   '/articles',
 #   '/templates/articles.html'
 # )
+
+# MULTILANG SAMPLES
+
+# [:en, :it].each do |locale|
+#   I18n.with_locale(locale) do
+#     dato.aritcles.each do |article|
+#       I18n.locale = locale
+#       proxy "/#{locale}/articles/#{article.slug}/index.html", "/templates/article_template.html", :locals => { article: article }, ignore: true, locale: locale
+#     end
+#   end
+# end
+
+# [:en, :it].each do |locale|
+#   I18n.with_locale(locale) do
+#     I18n.locale = locale
+#     paginate dato.articles.select{|a| a.published == true}.sort_by(&:date).reverse, "/#{I18n.locale}/articles", "/templates/articles.html", locals: { locale: I18n.locale }
+#   end
+# end
+
 <%- end -%>
