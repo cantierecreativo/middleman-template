@@ -6,6 +6,7 @@ set :url_root, '<%= @base_url %>'
 
 ignore '/templates/*'
 
+activate :asset_hash
 activate :directory_indexes
 activate :pagination
 <%- if @token -%>
