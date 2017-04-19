@@ -1,4 +1,7 @@
 = javascript_include_tag  "application"
+javascript:
+  (function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);
+
 - unless environment == :development
   javascript:
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -10,12 +13,6 @@
       ga('set', 'anonymizeIP', true);
       ga('send', 'pageview');
 
-
-    // PRIVACY POLICY
-    (function (w, d) {
-      var loader = function () { var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/cookie_solution/iubenda_cs.js"; tag.parentNode.insertBefore(s, tag); };
-      if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) { w.attachEvent("onload", loader); } else { w.onload = loader; }
-    })(window, document);
 
     // COOKIES POLICY
     var _iub = _iub || [];
