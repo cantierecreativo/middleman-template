@@ -10,16 +10,16 @@
   "author": "Cantiere Creativo s.r.l.",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
     "bemo-scaffold": "1.0.2",
+    "bemo-webfonts": "^1.0.1",
     "css-loader": "0.25.0",
     "extract-text-webpack-plugin": "1.0.1",
     "import-glob-loader": "1.1.0",
     "jquery-match-height": "^0.7.2",
-    "node-sass": "3.9.3",
+    "node-sass": "^4.5.3",
     "postcss-loader": "^1.3.3",
     "sass-loader": "4.0.2",
-    "webpack": "1.13.2",
-    "autoprefixer": "^6.7.7",
-    "bemo-webfonts": "^1.0.1"
+    "webpack": "1.13.2"
   }
 }
