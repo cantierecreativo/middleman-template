@@ -1,0 +1,4 @@
+<%- if @token -%>
+DATO_API_TOKEN=<%= @token %>
+<%- end -%>
+BASE_URL=<%= @base_url %>

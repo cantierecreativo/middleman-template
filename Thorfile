@@ -13,16 +13,19 @@ module Middleman
     def ask_about_datocms_params
       if yes?('Do you want to configure DatoCMS?')
         @token = ask('Please insert your DatoCMS site read-only token:')
-        @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
       end
 
+      @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
+
       template 'optional/config.rb', 'config.rb'
+      template 'optional/env', '.env'
     end
 
     def setup_bemo
       run 'npm install'
       run './node_modules/.bin/bemo-scaffold -s source/stylesheets/'
       run 'npm run webfonts'
+
       remove_file 'source/stylesheets/application.sass'
       template 'optional/application.sass', 'source/stylesheets/application.sass'
     end

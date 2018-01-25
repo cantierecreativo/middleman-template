@@ -2,7 +2,7 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-set :url_root, '<%= @base_url %>'
+set :url_root, ENV.fetch('BASE_URL')
 
 ignore '/templates/*'
 
@@ -10,9 +10,7 @@ activate :asset_hash
 activate :directory_indexes
 activate :pagination
 <%- if @token -%>
-activate :dato,
-  token: '<%= @token %>',
-  base_url: '<%= @base_url %>'
+activate :dato, token: ENV.fetch('DATO_API_TOKEN')
 <%- end -%>
 
 activate :external_pipeline,
