@@ -38,13 +38,13 @@ module Middleman
     end
 
     def setup_remotes
+      template 'optional/README.md', 'README.md'
+
       run "git init"
       run "git remote add origin #{@origin}"
       run "git remote add production #{@production}"
       run "git add ."
       run "git commit -m 'Boostrap project with template'"
-
-      template 'optional/README.md', 'README.md'
     end
   end
 end
