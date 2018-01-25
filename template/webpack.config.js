@@ -1,33 +1,51 @@
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 
-var extractSass = new ExtractTextPlugin('stylesheets/[name].css');
+const extractSass = new ExtractTextPlugin({
+  filename: "stylesheets/[name].css",
+  disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
   entry: {
-    application: __dirname + '/source/javascripts/index.js',
-    styles: __dirname + '/source/stylesheets/application.sass'
+    application: './source/javascripts/index.js',
+    styles: './source/stylesheets/application.sass'
   },
   resolve: {
-    root: __dirname + '/source/javascripts'
+    modules: [
+      path.join(__dirname, 'source/javascripts'),
+      "node_modules"
+    ]
   },
   output: {
-    path: __dirname + '/.tmp/dist',
+    path: path.resolve(__dirname, '.tmp/dist'),
     filename: 'javascripts/[name].js',
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.*\.sass$/,
-        loader: extractSass.extract(['css', 'postcss', 'sass', 'import-glob-loader'])
+        enforce: 'pre',
+        test: /\.s[ac]ss/,
+        use: 'import-glob-loader'
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: extractSass.extract({
+          use: [
+            { loader: "css-loader" },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [autoprefixer()]
+              }
+            },
+            { loader: "sass-loader" }
+          ],
+          fallback: "style-loader"
+        })
       }
     ]
   },
-  plugins: [
-    extractSass
-  ],
-  postcss: function postcss() {
-    return [autoprefixer];
-  },
+  plugins: [ extractSass ]
 };

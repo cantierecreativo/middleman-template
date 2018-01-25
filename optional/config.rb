@@ -10,7 +10,7 @@ activate :asset_hash
 activate :directory_indexes
 activate :pagination
 <%- if @token -%>
-activate :dato, token: ENV.fetch('DATO_API_TOKEN')
+activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: false
 <%- end -%>
 
 activate :external_pipeline,
@@ -35,36 +35,37 @@ configure :development do
 end
 
 <%- if @token -%>
-# dato.articles.each do |article|
-#   proxy(
-#     '/articles/#{article.slug}.html',
-#     '/templates/article.html',
-#     locals: { article: article }
+# dato.tap do |dato|
+#   dato.articles.each do |article|
+#     proxy(
+#       '/articles/#{article.slug}.html',
+#       '/templates/article.html',
+#       locals: { article: article }
+#     )
+#   end
+
+#   paginate(
+#     dato.articles.sort_by(&:published_at).reverse,
+#     '/articles',
+#     '/templates/articles.html'
 #   )
-# end
 
-# paginate(
-#   dato.articles.sort_by(&:published_at).reverse,
-#   '/articles',
-#   '/templates/articles.html'
-# )
+#   MULTILANG SAMPLES
 
-# MULTILANG SAMPLES
+#   [:en, :it].each do |locale|
+#     I18n.with_locale(locale) do
+#       dato.aritcles.each do |article|
+#         I18n.locale = locale
+#         proxy "/#{locale}/articles/#{article.slug}/index.html", "/templates/article_template.html", :locals => { article: article }, ignore: true, locale: locale
+#       end
+#     end
+#   end
 
-# [:en, :it].each do |locale|
-#   I18n.with_locale(locale) do
-#     dato.aritcles.each do |article|
+#   [:en, :it].each do |locale|
+#     I18n.with_locale(locale) do
 #       I18n.locale = locale
-#       proxy "/#{locale}/articles/#{article.slug}/index.html", "/templates/article_template.html", :locals => { article: article }, ignore: true, locale: locale
+#       paginate dato.articles.select{|a| a.published == true}.sort_by(&:date).reverse, "/#{I18n.locale}/articles", "/templates/articles.html", locals: { locale: I18n.locale }
 #     end
 #   end
 # end
-
-# [:en, :it].each do |locale|
-#   I18n.with_locale(locale) do
-#     I18n.locale = locale
-#     paginate dato.articles.select{|a| a.published == true}.sort_by(&:date).reverse, "/#{I18n.locale}/articles", "/templates/articles.html", locals: { locale: I18n.locale }
-#   end
-# end
-
 <%- end -%>
