@@ -9,6 +9,7 @@ ignore '/templates/*'
 activate :asset_hash
 activate :directory_indexes
 activate :pagination
+activate :inline_svg
 <%- if @token -%>
 activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: false
 <%- end -%>
