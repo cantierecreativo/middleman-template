@@ -6,17 +6,22 @@ module Middleman
 
     source_root File.expand_path(File.dirname(__FILE__))
 
-    def copy_default_files
-      directory 'template', '.', exclude_pattern: /\.DS_Store$/
-    end
-
-    def ask_about_datocms_params
+    def ask_stuff
       if yes?('Do you want to configure DatoCMS?')
         @token = ask('Please insert your DatoCMS site read-only token:')
       end
 
       @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
 
+      @origin = ask('What is the origin remote? (eg. git@gitlab.cantierecreativo.net:cantiere/patrickphelipon.git)')
+      @production = ask('What is the production remote? (eg. git@gitlab.com:cantierecreativo/patrickphelipon.git)')
+    end
+
+    def copy_default_files
+      directory 'template', '.', exclude_pattern: /\.DS_Store$/
+    end
+
+    def ask_about_datocms_params
       template 'optional/config.rb', 'config.rb'
       template 'optional/env', '.env'
     end
@@ -33,11 +38,11 @@ module Middleman
     end
 
     def setup_remotes
-      @origin = ask('What is the origin remote? (eg. git@gitlab.cantierecreativo.net:cantiere/patrickphelipon.git)')
-      @production = ask('What is the production remote? (eg. git@gitlab.com:cantierecreativo/patrickphelipon.git)')
-
+      run "git init"
       run "git remote add origin #{@origin}"
       run "git remote add production #{@production}"
+      run "git add ."
+      run "git commit -m 'Boostrap project with template'"
 
       template 'optional/README.md', 'README.md'
     end
