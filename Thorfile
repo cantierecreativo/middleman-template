@@ -7,10 +7,7 @@ module Middleman
     source_root File.expand_path(File.dirname(__FILE__))
 
     def ask_stuff
-      if yes?('Do you want to configure DatoCMS?')
-        @token = ask('Please insert your DatoCMS site read-only token:')
-      end
-
+      @token = ask('Please insert your DatoCMS site read-only token:')
       @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
 
       @origin = ask('What is the origin remote? (eg. git@gitlab.cantierecreativo.net:cantiere/patrickphelipon.git)')
