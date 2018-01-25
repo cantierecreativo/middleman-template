@@ -34,6 +34,8 @@ configure :development do
   activate :livereload
 end
 
+proxy "/_redirects", "/templates/redirects.txt"
+
 <%- if @token -%>
 # dato.tap do |dato|
 #   dato.articles.each do |article|
