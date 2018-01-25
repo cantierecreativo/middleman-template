@@ -28,6 +28,7 @@ module Middleman
 
       remove_file 'source/stylesheets/application.sass'
       template 'optional/application.sass', 'source/stylesheets/application.sass'
+      remove_file 'source/stylesheets/functions/_urls.sass'
       template 'optional/urls.sass', 'source/stylesheets/functions/_urls.sass'
     end
   end
