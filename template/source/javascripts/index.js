@@ -1,1 +1,1 @@
-// This is where it all goes :)
+const modernizr = require('modernizr');

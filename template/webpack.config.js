@@ -16,7 +16,10 @@ module.exports = {
     modules: [
       path.join(__dirname, 'source/javascripts'),
       "node_modules"
-    ]
+    ],
+    alias: {
+      modernizr$: path.resolve(__dirname, ".modernizrrc.js")
+    }
   },
   output: {
     path: path.resolve(__dirname, '.tmp/dist'),
@@ -24,6 +27,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        loader: "webpack-modernizr-loader",
+        test: /\.modernizrrc\.js$/
+      },
       {
         enforce: 'pre',
         test: /\.s[ac]ss/,
