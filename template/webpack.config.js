@@ -32,6 +32,16 @@ module.exports = {
         test: /\.modernizrrc\.js$/
       },
       {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
         enforce: 'pre',
         test: /\.s[ac]ss/,
         use: 'import-glob-loader'

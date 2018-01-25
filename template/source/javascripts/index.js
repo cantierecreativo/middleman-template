@@ -1,1 +1,1 @@
-const modernizr = require('modernizr');
+import modernizr from 'modernizr';
