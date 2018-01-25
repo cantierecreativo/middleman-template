@@ -31,6 +31,16 @@ module Middleman
       remove_file 'source/stylesheets/functions/_urls.sass'
       template 'optional/urls.sass', 'source/stylesheets/functions/_urls.sass'
     end
+
+    def setup_remotes
+      @origin = ask('What is the origin remote? (eg. git@gitlab.cantierecreativo.net:cantiere/patrickphelipon.git)')
+      @production = ask('What is the production remote? (eg. git@gitlab.com:cantierecreativo/patrickphelipon.git)')
+
+      run "git remote add origin #{@origin}"
+      run "git remote add production #{@production}"
+
+      template 'optional/README.md', 'README.md'
+    end
   end
 end
 
