@@ -18,12 +18,17 @@
     "bemo-webfonts": "*",
     "css-loader": "0.28.9",
     "extract-text-webpack-plugin": "3.0.2",
+    "glob": "^7.1.2",
+    "glob-loader": "0.3.0",
     "import-glob-loader": "1.1.0",
     "node-sass": "4.7.2",
     "postcss-loader": "2.0.10",
     "sass-loader": "6.0.6",
+    "svg-sprite-loader": "^3.4.1",
     "style-loader": "0.19.1",
     "webpack": "3.10.0",
-    "webpack-modernizr-loader": "4.0.0"
+    "webpack-modernizr-loader": "4.0.0",
+    "svgo-loader": "^2.0.0",
+    "svgo": "^1.0.0"
   }
 }
