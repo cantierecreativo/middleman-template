@@ -1,0 +1,20 @@
+.svg-inliner
+  display: none !important
+
+svg
+  display: inline-block
+  vertical-align: text-bottom // così le icone siederanno sulla linea di base
+  width: 1em
+  height: 1em // così le icone erediteranno la dimensione del testo nel contesto in cui si trovano
+
+  fill: currentColor // gli svg devono avere tutti gli attributi fill rimossi perché questa proprietà funzioni
+
+//  altre proprietà controllabili
+//  fill-opacity: .9
+//  stroke: currentColor
+//  stroke-opacity: .9
+//  stroke-width: 4px
+//  stroke-dasharray: 10px 20px
+//  stroke-dashoffset: 20px
+//  stroke-linecap: round
+//  stroke-linejoin: round
