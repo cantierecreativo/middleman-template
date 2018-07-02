@@ -32,6 +32,11 @@ module Middleman
       template 'optional/application.sass', 'source/stylesheets/application.sass'
       remove_file 'source/stylesheets/functions/_urls.sass'
       template 'optional/urls.sass', 'source/stylesheets/functions/_urls.sass'
+      # SVG INJECT
+      template 'optional/svg.sass', 'source/stylesheets/blocks/_svg.sass'
+      template 'optional/svg/svg_icons.js', 'source/fonts/svg/svg_icons.js'
+      template 'optional/svg/svg.pattern', 'source/fonts/svg/svg.pattern'
+      template 'optional/svg/icons/panda.svg', 'source/fonts/svg/icons/sample.svg'
     end
 
     def setup_remotes
@@ -45,4 +50,3 @@ module Middleman
     end
   end
 end
-

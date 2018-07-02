@@ -6,6 +6,7 @@ set :url_root, ENV.fetch('BASE_URL')
 
 ignore '/templates/*'
 
+activate :i18n, langs: [:it], mount_at_root: false
 activate :asset_hash
 activate :directory_indexes
 activate :pagination
@@ -33,6 +34,24 @@ end
 
 configure :development do
   activate :livereload
+end
+
+helpers do
+  def active_link_to(name, url, options = {})
+    if (url === "/#{I18n.locale}/" && current_page.url === "/#{I18n.locale}/") ||
+      (url != "/#{I18n.locale}/" && current_page.url[0...-1].eql?(url))
+      options[:class] = options.fetch(:class, '') + " is-active"
+      link_to name, url, options
+    else
+      link_to name, url, options
+    end
+  end
+
+  def icon(name)
+    content_tag(:svg) do
+      content_tag(:use, "", "xlink:href" => "##{name}")
+    end
+  end
 end
 
 proxy "/_redirects", "/templates/redirects.txt"

@@ -4,6 +4,8 @@ meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1
 meta name="mobile-web-app-capable" content="yes"
 meta name="apple-mobile-web-app-capable" content="yes"
 meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width"
+- if ENV['BUILD_ENV'] == "staging"
+  meta name="robots" content="noindex, nofollow"
 
 = yield_content :head
 = dato_favicon_meta_tags
