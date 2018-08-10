@@ -36,17 +36,16 @@ module Middleman
       template 'optional/svg.sass', 'source/stylesheets/blocks/_svg.sass'
       template 'optional/svg/svg_icons.js', 'source/fonts/svg/svg_icons.js'
       template 'optional/svg/svg.pattern', 'source/fonts/svg/svg.pattern'
-      template 'optional/svg/icons/panda.svg', 'source/fonts/svg/icons/sample.svg'
     end
 
     def setup_remotes
       template 'optional/README.md', 'README.md'
 
       run "git init"
-      if @origin
+      if @origin != ""
         run "git remote add origin #{@origin}"
       end
-      if @production
+      if @production != ""
         run "git remote add production #{@production}"
       end
       run "git add ."
