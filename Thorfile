@@ -43,8 +43,12 @@ module Middleman
       template 'optional/README.md', 'README.md'
 
       run "git init"
-      run "git remote add origin #{@origin}"
-      run "git remote add production #{@production}"
+      if @origin
+        run "git remote add origin #{@origin}"
+      end
+      if @production
+        run "git remote add production #{@production}"
+      end
       run "git add ."
       run "git commit -m 'Boostrap project with template'"
     end
