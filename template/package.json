@@ -1,5 +1,5 @@
 {
-  "name": "middleman-project",
+  "name": "middleman-template",
   "version": "1.0.0",
   "private": true,
   "description": "Another Middleman website",
@@ -28,7 +28,7 @@
     "style-loader": "0.19.1",
     "webpack": "3.10.0",
     "webpack-modernizr-loader": "4.0.0",
-    "svgo-loader": "^2.0.0",
-    "svgo": "^1.0.0"
+    "svgo-loader": "^2.1.0",
+    "svgo": ">=1.0.0"
   }
 }

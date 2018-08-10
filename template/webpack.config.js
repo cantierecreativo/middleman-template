@@ -3,12 +3,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
-var svgSpriteLoaderConfig = JSON.stringify({
-  extract: true,
-  spriteFilename: "fonts/svg/sprite.svg"
-});
-
-var svgoConfig = JSON.stringify({
+var svgoConfig = {
   multipass: true,
   pretty: true,
   plugins: [
@@ -48,7 +43,7 @@ var svgoConfig = JSON.stringify({
     {removeXMLProcInst: true},
     {sortAttrs: true}
   ]
-});
+};
 
 const extractSass = new ExtractTextPlugin({
   filename: "stylesheets/[name].css",
@@ -58,7 +53,8 @@ const extractSass = new ExtractTextPlugin({
 module.exports = {
   entry: {
     application: './source/javascripts/index.js',
-    styles: './source/stylesheets/application.sass'
+    styles: './source/stylesheets/application.sass',
+    svg: './source/fonts/svg/svg_icons.js'
   },
   resolve: {
     modules: [
@@ -113,8 +109,17 @@ module.exports = {
       {
         test: /\.svg$/,
         use: [
-          { loader: 'svg-sprite?' + svgSpriteLoaderConfig },
-          { loader: 'svgo?' + svgoConfig },
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              spriteFilename: "fonts/svg/sprite.svg"
+            }
+          },
+          {
+            loader: 'svgo-loader',
+            options: svgoConfig
+          }
         ]
       }
     ]
