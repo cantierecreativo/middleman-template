@@ -47,11 +47,22 @@ helpers do
     end
   end
 
-  def icon(name)
-    content_tag(:svg) do
+  # attributes = {class: "", id: "", data: {role: {}, title: {}}}
+
+  def icon(name, attributes={})
+    default_attributes = {role: "icon"}
+    default_attributes.merge!(attributes.except(:role))
+    unless attributes.has_key? :class
+      default_attributes[:class] ||= "icon--#{name}"
+    else
+      default_attributes[:class] += " icon--#{name}"
+    end
+
+    content_tag(:svg, default_attributes) do
       content_tag(:use, "", "xlink:href" => "##{name}")
     end
   end
+  alias i icon
 end
 
 proxy "/_redirects", "/templates/redirects.txt"

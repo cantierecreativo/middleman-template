@@ -29,6 +29,6 @@
     "webpack": "3.10.0",
     "webpack-modernizr-loader": "4.0.0",
     "svgo-loader": "^2.1.0",
-    "svgo": ">=1.0.0"
+    "svgo": "^1.1.0"
   }
 }

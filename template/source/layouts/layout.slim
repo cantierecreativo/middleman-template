@@ -2,8 +2,7 @@ doctype 5
 html lang=I18n.locale
   head = partial "partials/head"
   body
-    = inline_svg("sprite.svg", class: "svg-inliner")
-    .svg-inliner= partial "fonts/svg/sprite.svg"
+    .svg-sprite-inliner= partial "/fonts/svg/sprite.svg"
     = yield
 
     = partial "partials/footer"

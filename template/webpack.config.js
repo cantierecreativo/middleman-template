@@ -21,7 +21,7 @@ var svgoConfig = {
     {mergePaths: true},
     {moveElemsAttrsToGroup: true},
     {moveGroupAttrsToElems: true},
-    //{removeAttrs: {attrs: '(fill|stroke)'}}, // if you don't want any color from the original svg
+    //{removeAttrs: {attrs: '(fill|stroke)'}}, // if you don't want any color from the original SVG - see also the removeStyleElement option
     {removeComments: true},
     {removeDesc: false}, // for usability reasons
     {removeDimensions: true},
@@ -34,6 +34,8 @@ var svgoConfig = {
     {removeMetadata: true},
     {removeNonInheritableGroupAttrs: true},
     {removeRasterImages: true}, // bitmap! you shall not pass!
+    {removeScriptElement: true}, // shoo, javascript!
+    //{removeStyleElement: true}, // if you really really want to remove ANY <style> tag from the original SVG, watch out as it could be too much disruptive - see also the removeAttrs option
     {removeTitle: false}, // for usability reasons
     {removeUnknownsAndDefaults: true},
     {removeUnusedNS: true},
@@ -126,6 +128,11 @@ module.exports = {
   },
   plugins: [
     extractSass,
-    new SpriteLoaderPlugin({ plainSprite: true }) // render plain sprite without styles and usages in extract mode, as we want it
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+      spriteAttrs: {
+        id: 'svg-sprite-inline'
+      }
+    }) // render plain sprite without styles and usages in extract mode, as we want it
   ]
 };
