@@ -53,9 +53,9 @@ helpers do
     default_attributes = {role: "icon"}
     default_attributes.merge!(attributes.except(:role))
     unless attributes.has_key? :class
-      default_attributes[:class] ||= "icon--#{name}"
+      default_attributes[:class] ||= "icon-svg--#{name}"
     else
-      default_attributes[:class] += " icon--#{name}"
+      default_attributes[:class] += " icon-svg--#{name}"
     end
 
     content_tag(:svg, default_attributes) do
