@@ -21,17 +21,17 @@ en:
 
   form:
     label:
-      first_name: "Nome"
-      last_name: "Cognome"
+      first_name: "Name"
+      last_name: "Surname"
       email: "Email"
-      phone: "Telefono"
-      message: "Messaggio"
+      phone: "Phone"
+      message: "Message"
       privacy: "Privacy"
     placeholder:
-      first_name: "Nome"
-      last_name: "Cognome"
+      first_name: "Name"
+      last_name: "Surname"
       email: "Email"
-      phone: "Telefono"
-      message: "Messaggio"
+      phone: "Phone"
+      message: "Message"
       privacy: "Privacy"
-    submit: "Invia"
+    submit: "Send"
