@@ -11,3 +11,10 @@ en:
     button_label: "Design & Development by Lean Panda"
     url: "https://www.leanpanda.com"
     title: "Ruby on Rails Agency Lean Panda based in Florence"
+
+  iubenda_id: QQQQQQQQ
+
+  nav:
+    menu: "Menu"
+    home: "HOME"
+    menu_close: "Close"
