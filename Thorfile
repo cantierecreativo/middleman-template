@@ -7,11 +7,12 @@ module Middleman
     source_root File.expand_path(File.dirname(__FILE__))
 
     def ask_stuff
+      @langs = ask('Please insert your site langs: (es. it,en)')
       @token = ask('Please insert your DatoCMS site read-only token:')
       @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
 
-      @origin = ask('What is the origin remote? (eg. git@gitlab.cantierecreativo.net:cantiere/patrickphelipon.git)')
-      @production = ask('What is the production remote? (eg. git@gitlab.com:cantierecreativo/patrickphelipon.git)')
+      @origin = ask('What is the origin remote? (eg. git@gitlab.com:cantierecreativo/PROJECT.git)')
+      @production = ask('What is the production remote? (eg. git@gitlab.com:cantierecreativo/PROJECT.git)')
     end
 
     def copy_default_files
@@ -29,7 +30,7 @@ module Middleman
       run 'yarn webfonts'
 
       remove_file 'source/stylesheets/application.sass'
-      template 'optional/application.sass', 'source/stylesheets/application.sass'
+      template 'optional/_application.sass', 'source/stylesheets/_application.sass'
       remove_file 'source/stylesheets/functions/_urls.sass'
       template 'optional/urls.sass', 'source/stylesheets/functions/_urls.sass'
       # SVG INJECT

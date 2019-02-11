@@ -55,11 +55,12 @@ const extractSass = new ExtractTextPlugin({
 module.exports = {
   entry: {
     application: './source/javascripts/index.js',
-    styles: './source/stylesheets/application.sass',
+    styles: './source/stylesheets/_application.sass',
     svg: './source/fonts/svg/svg_icons.js'
   },
   resolve: {
     modules: [
+      path.join(__dirname, 'source/stylesheets'),
       path.join(__dirname, 'source/javascripts'),
       "node_modules"
     ],
@@ -104,8 +105,7 @@ module.exports = {
               }
             },
             { loader: "sass-loader" }
-          ],
-          fallback: "style-loader"
+          ]
         })
       },
       {

@@ -6,7 +6,11 @@ set :url_root, ENV.fetch('BASE_URL')
 
 ignore '/templates/*'
 
-activate :i18n, langs: [:it], mount_at_root: false
+<%- if @langs -%>
+langs = ENV.fetch('LANGS').split(",").map(&:to_sym)
+activate :i18n, langs: langs, mount_at_root: false
+<%- end -%>
+
 activate :asset_hash
 activate :directory_indexes
 activate :pagination
@@ -15,11 +19,16 @@ activate :inline_svg
 activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: false
 <%- end -%>
 
+webpack_command =
+  if build?
+    "yarn run build"
+  else
+    "yarn run dev"
+  end
+
 activate :external_pipeline,
   name: :webpack,
-  command: build? ?
-    "./node_modules/webpack/bin/webpack.js --bail -p" :
-    "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+  command: webpack_command,
   source: ".tmp/dist",
   latency: 1
 
@@ -37,35 +46,50 @@ configure :development do
 end
 
 helpers do
+  def active?(url)
+    (url === "/#{I18n.locale}/" && current_page.url === "/#{I18n.locale}/") ||
+      (url != "/#{I18n.locale}/" && current_page.url[0...-1].eql?(url)) ||
+      url == current_page.url
+  end
+
   def active_link_to(name, url, options = {})
-    if (url === "/#{I18n.locale}/" && current_page.url === "/#{I18n.locale}/") ||
-      (url != "/#{I18n.locale}/" && current_page.url[0...-1].eql?(url))
-      options[:class] = options.fetch(:class, '') + " is-active"
-      link_to name, url, options
-    else
-      link_to name, url, options
+    options[:class] = options.fetch(:class, "") + " is-active" if active?(url)
+    link_to name, url, options
+  end
+
+  def localized_paths_for(page)
+    localized_paths = {}
+    sitemap.resources.each do |resource|
+      next if !resource.is_a?(Middleman::Sitemap::ProxyResource)
+      unless current_page.path == "404.html" || current_page.path == "index.html"
+        if resource.target_resource == page.target_resource && resource.metadata[:locals] == page.metadata[:locals]
+          localized_paths[resource.metadata[:options][:locale]] = resource.url
+        end
+      end
     end
+    localized_paths
+  end
+
+  def favicon_json_path(path, escape = '\/')
+    image_path(path).gsub(/\//, escape)
   end
 
   # attributes = {class: "", id: "", data: {role: {}, title: {}}}
-
-  def icon(name, attributes={})
+  def icon(name, attributes = {})
     default_attributes = {role: "icon"}
     default_attributes.merge!(attributes.except(:role))
-    unless attributes.has_key? :class
-      default_attributes[:class] ||= "icon-svg--#{name}"
-    else
+    if attributes.key?(:class)
       default_attributes[:class] += " icon-svg--#{name}"
+    else
+      default_attributes[:class] ||= "icon-svg--#{name}"
     end
 
     content_tag(:svg, default_attributes) do
       content_tag(:use, "", "xlink:href" => "##{name}")
     end
   end
-  alias i icon
+  alias_method :i, :icon
 end
-
-proxy "/_redirects", "/templates/redirects.txt"
 
 <%- if @token -%>
 # dato.tap do |dato|
@@ -85,7 +109,7 @@ proxy "/_redirects", "/templates/redirects.txt"
 
 #   MULTILANG SAMPLES
 
-#   [:en, :it].each do |locale|
+#   langs.each do |locale|
 #     I18n.with_locale(locale) do
 #       dato.aritcles.each do |article|
 #         I18n.locale = locale
@@ -94,7 +118,7 @@ proxy "/_redirects", "/templates/redirects.txt"
 #     end
 #   end
 
-#   [:en, :it].each do |locale|
+#   langs.each do |locale|
 #     I18n.with_locale(locale) do
 #       I18n.locale = locale
 #       paginate dato.articles.select{|a| a.published == true}.sort_by(&:date).reverse, "/#{I18n.locale}/articles", "/templates/articles.html", locals: { locale: I18n.locale }
@@ -102,3 +126,15 @@ proxy "/_redirects", "/templates/redirects.txt"
 #   end
 # end
 <%- end -%>
+
+proxy "site.webmanifest",
+  "templates/site.webmanifest",
+  :layout => false
+
+proxy "browserconfig.xml",
+  "templates/browserconfig.xml",
+  :layout => false
+
+proxy "/_redirects",
+  "/templates/redirects.txt",
+  :layout => false
