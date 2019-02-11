@@ -132,6 +132,17 @@ end
 # end
 <%- end -%>
 
+<%- if @langs -%>
+langs.each do |locale|
+  I18n.with_locale(locale) do
+    proxy "/#{locale}/contact/index.html",
+      "templates/contact_page.html",
+      locals: { locale: I18n.locale },
+      locale: locale
+  end
+end
+<%- end -%>
+
 proxy "site.webmanifest",
   "templates/site.webmanifest",
   :layout => false
