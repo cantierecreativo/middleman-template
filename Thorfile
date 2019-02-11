@@ -40,7 +40,6 @@ module Middleman
     def add_slick_sass
       template 'optional/slick.sass', 'source/stylesheets/variables/_slick.sass'
       template 'optional/slick', 'source/stylesheets/blocks/slick', exclude_pattern: /\.DS_Store$/
-      template 'node_modules/slick-carousel/slick/fonts', 'source/fonts'
     end
 
     def setup_sass
