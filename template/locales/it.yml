@@ -1,0 +1,13 @@
+it:
+  index_lang:
+    it: "Versione italiana"
+    en: "English version"
+
+  locales_label:
+    it: "Italiano"
+    en: "English"
+
+  credits:
+    button_label: "Design & Development Cantiere Creativo"
+    url: "https://www.cantierecreativo.net"
+    title: "Cantiere Creativo Agenzia web Ruby on Rails Firenze"
