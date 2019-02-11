@@ -18,3 +18,20 @@ it:
     menu: "Menu"
     home: "HOME"
     menu_close: "Chiudi"
+
+  form:
+    label:
+      first_name: "Nome"
+      last_name: "Cognome"
+      email: "Email"
+      phone: "Telefono"
+      message: "Messaggio"
+      privacy: "Privacy"
+    placeholder:
+      first_name: "Nome"
+      last_name: "Cognome"
+      email: "Email"
+      phone: "Telefono"
+      message: "Messaggio"
+      privacy: "Privacy"
+    submit: "Invia"
