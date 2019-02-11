@@ -39,7 +39,7 @@ module Middleman
 
     def add_slick_sass
       template 'optional/slick.sass', 'source/stylesheets/variables/_slick.sass'
-      template 'optional/slick', 'source/stylesheets/blocks/slick', exclude_pattern: /\.DS_Store$/
+      run 'cp -R optional/slick/*', 'source/stylesheets/blocks/slick/'
     end
 
     def setup_sass
