@@ -89,6 +89,11 @@ helpers do
     end
   end
   alias_method :i, :icon
+
+  # Custom helper to theme
+  def site_nav_menu
+    []
+  end
 end
 
 <%- if @token -%>
