@@ -2,8 +2,14 @@ doctype 5
 html lang=I18n.locale
   head = partial "partials/head"
   body
-    .svg-sprite-inliner= partial "/fonts/svg/sprite.svg"
-    = yield
+    .svg-sprite-inliner= partial "fonts/svg/sprite.svg"
+    .canvas
+      aside.canvas__aside--left
+        = partial "partials/aside-nav-left"
+      main.canvas__main
+        = yield
+        = partial "partials/site-footer"
+      aside.canvas__aside--right
+        = partial "partials/aside-nav-right"
 
-    = partial "partials/footer"
     = partial "partials/js_includes"

@@ -7,7 +7,7 @@ div style="display: none;"
   - langs.each do |lang|
     p
       a href="/#{lang}"
-        = I18n.t('lang')
+        = I18n.t('index_lang')
 
 javascript:
   var languages = #{langs.to_json};

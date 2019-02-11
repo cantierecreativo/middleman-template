@@ -1,0 +1,8 @@
+- block_class ||= nil
+- complete_label ||= false
+
+div class=block_class
+  - localized_paths_for(current_page).each do |locale, path|
+    =< link_to complete_label ? I18n.t("locales_label.#{locale}") : locale,
+      "#{ENV['BASE_URL']}#{path}",
+      class: "#{block_class}__link #{'is-current' if locale == I18n.locale}"
