@@ -1,0 +1,56 @@
+form.form action="https://formspree.io/#{ENV.fetch('CONTACT_EMAIL')}" method="POST"
+  fieldset
+    .form__fields
+      .grid
+        .grid__item.lap-6-12.form__fields__item
+          = label_tag t('contact.form.name.label'), class: "form__field__label"
+          = text_field_tag :name,
+            value: "",
+            name: t('contact.form.name.label'),
+            placeholder: t('contact.form.name.placeholder'),
+            class: "form__field__input",
+            required: "required"
+        .grid__item.lap-6-12.form__fields__item
+          = label_tag t('contact.form.last_name.label'), class: "form__field__label"
+          = text_field_tag :last_name,
+            value: "",
+            name: t('contact.form.last_name.label'),
+            placeholder: t('contact.form.last_name.placeholder'),
+            class: "form__field__input",
+            required: "required"
+      .grid
+        .grid__item.lap-6-12.form__fields__item
+          = label_tag t('contact.form.email.label'), class: "form__field__label"
+          = email_field_tag :email,
+            value: "",
+            name: t('contact.form.email.label'),
+            placeholder: t('contact.form.email.placeholder'),
+            class: "form__field__input",
+            required: "required"
+        .grid__item.lap-6-12.form__fields__item
+          = label_tag t('contact.form.phone.label'), class: "form__field__label"
+          = text_field_tag :phone,
+            value: "",
+            name: t('contact.form.phone.label'),
+            placeholder: t('contact.form.phone.placeholder'),
+            class: "form__field__input",
+            required: "required"
+    .form__field
+      = label_tag t('contact.form.content.label'), class: "form__field__label"
+      = text_area_tag :textarea,
+        value: "",
+        name: t('contact.form.content.label'),
+        placeholder: t('contact.form.content.placeholder'),
+        class: "form__field__textarea",
+        required: "required",
+        rows: 12
+    .form__actions
+      .form__field.space--top-1
+        label.input--checkbox
+          input required="required" type="checkbox"
+          span.input__label.formatted-content
+            = t('contact.form.privacy.label')
+            =< link_to "Privacy Policy",
+              "//www.iubenda.com/privacy-policy/#{I18n.t('iubenda_id')}",
+              class: "iubenda-nostyle no-brand iubenda-embed"
+      input.button--secondary type="submit" value="#{t("contact.form.submit")}"
