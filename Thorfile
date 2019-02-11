@@ -34,11 +34,12 @@ module Middleman
       remove_file 'source/stylesheets/functions/_urls.sass'
       template 'optional/urls.sass', 'source/stylesheets/functions/_urls.sass'
       run 'mkdir -p source/stylesheets/blocks/bemo/'
-      run 'mv source/stylesheets/blocks/* source/stylesheets/blocks/bemo/'
+      run 'mv source/stylesheets/blocks/_* source/stylesheets/blocks/bemo/'
     end
 
     def add_slick_sass
       template 'optional/slick.sass', 'source/stylesheets/variables/_slick.sass'
+      run 'mkdir -p source/stylesheets/blocks/slick/'
       run 'cp -R optional/slick/*', 'source/stylesheets/blocks/slick/'
     end
 
