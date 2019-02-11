@@ -6,6 +6,7 @@ to [Netlify].
 [cantierecreativo]: https://cantierecreativo.net/
 [Netlify]: https://www.netlify.com/
 
+
 ## Usage
 
 1. Install or set Ruby (2.4.3) with RBENV:
@@ -37,6 +38,14 @@ This template comes with the following features and tools:
 - [middleman-search_engine_sitemap]: An extension to manage sitemap.
 - [Sass]: CSS pre-processor.
 - [Slim]: Templating engine to reduce the syntax to the essential parts.
+
+[middleman-dato]: https://github.com/datocms/middleman-dato
+[middleman-svg]: https://github.com/cantierecreativo/middleman-svg
+[middleman-minify-html]: https://github.com/middleman/middleman-minify-html
+[middleman-search_engine_sitemap]: https://github.com/Aupajo/middleman-search_engine_sitemap
+[Sass]: https://github.com/sass/sass
+[Slim]: https://github.com/slim-template/slim
+
 
 ## License
 
