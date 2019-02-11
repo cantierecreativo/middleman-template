@@ -33,6 +33,17 @@ module Middleman
       template 'optional/_application.sass', 'source/stylesheets/_application.sass'
       remove_file 'source/stylesheets/functions/_urls.sass'
       template 'optional/urls.sass', 'source/stylesheets/functions/_urls.sass'
+      run 'mkdir -p source/stylesheets/blocks/bemo/'
+      run 'mv source/stylesheets/blocks/* source/stylesheets/blocks/bemo/'
+    end
+
+    def add_slick_sass
+      template 'optional/slick.sass', 'source/stylesheets/variables/_slick.sass'
+      template 'optional/slick', 'source/stylesheets/blocks/slick', exclude_pattern: /\.DS_Store$/
+      template 'node_modules/slick-carousel/slick/fonts', 'source/fonts'
+    end
+
+    def setup_sass
       # SVG INJECT
       template 'optional/svg.sass', 'source/stylesheets/blocks/_svg.sass'
       template 'optional/svg/svg_icons.js', 'source/fonts/svg/svg_icons.js'
