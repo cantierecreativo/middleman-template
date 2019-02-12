@@ -1,1 +1,20 @@
-h1.alpha Hi there!
+---
+hide_from_sitemap: true
+---
+- langs = ENV.fetch('LANGS').split(",")
+
+div style="display: none;"
+  - langs.each do |lang|
+    p
+      a href="/#{lang}"
+        = I18n.t('index_lang')
+
+javascript:
+  var languages = #{langs.to_json};
+  var language = window.navigator.userLanguage || window.navigator.language;
+  if (languages.includes(language.substring(0,2))) {
+    l = language.substring(0,2);
+  } else {
+    l = languages[0];
+  }
+  window.location.href = "/" + l + "/";

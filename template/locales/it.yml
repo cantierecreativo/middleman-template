@@ -1,0 +1,38 @@
+it:
+  iubenda_id: QQQQQQQQ
+  contact_email: "test@cantierecreativo.net"
+
+  index_lang:
+    it: "Versione italiana"
+    en: "English version"
+
+  locales_label:
+    it: "Italiano"
+    en: "English"
+
+  credits:
+    button_label: "Design & Development Cantiere Creativo"
+    url: "https://www.cantierecreativo.net"
+    title: "Cantiere Creativo Agenzia web Ruby on Rails Firenze"
+
+  nav:
+    menu: "Menu"
+    home: "HOME"
+    menu_close: "Chiudi"
+
+  form:
+    label:
+      first_name: "Nome"
+      last_name: "Cognome"
+      email: "Email"
+      phone: "Telefono"
+      message: "Messaggio"
+      privacy: "Privacy"
+    placeholder:
+      first_name: "Nome"
+      last_name: "Cognome"
+      email: "Email"
+      phone: "Telefono"
+      message: "Messaggio"
+      privacy: "Privacy"
+    submit: "Invia"

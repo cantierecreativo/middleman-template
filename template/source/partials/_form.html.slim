@@ -1,0 +1,53 @@
+form.form action="https://formspree.io/#{I18n.t('contact_email')}" method="POST"
+  fieldset
+    .form__field
+      = label_tag t('form.label.first_name'), class: "input__label"
+      = text_field_tag :name,
+        value: "",
+        name: t('form.label.first_name'),
+        placeholder: t('form.placeholder.first_name'),
+        class: "input",
+        required: "required"
+    .form__field
+      = label_tag t('form.label.last_name'), class: "input__label"
+      = text_field_tag :last_name,
+        value: "",
+        name: t('form.label.last_name'),
+        placeholder: t('form.placeholder.last_name'),
+        class: "input",
+        required: "required"
+    .form__field
+      = label_tag t('form.label.email'), class: "input__label"
+      = email_field_tag :email,
+        value: "",
+        name: t('form.label.email'),
+        placeholder: t('form.placeholder.email'),
+        class: "input",
+        required: "required"
+    .form__field
+      = label_tag t('form.label.phone'), class: "input__label"
+      = text_field_tag :phone,
+        value: "",
+        name: t('form.label.phone'),
+        placeholder: t('form.placeholder.phone'),
+        class: "input",
+        required: "required"
+    .form__field
+      = label_tag t('form.label.message'), class: "input__label"
+      = text_area_tag :textarea,
+        value: "",
+        name: t('form.label.message'),
+        placeholder: t('form.placeholder.message'),
+        class: "input",
+        required: "required",
+        rows: 12
+    .form__actions
+      .form__field.space--top-1
+        label.input--checkbox
+          input required="required" type="checkbox"
+          span.input__label.formatted-content
+            = t('form.label.privacy')
+            =< link_to "Privacy Policy",
+              "//www.iubenda.com/privacy-policy/#{I18n.t('iubenda_id')}",
+              class: "iubenda-nostyle no-brand iubenda-embed"
+      input.button type="submit" value="#{t("form.submit")}"

@@ -1,0 +1,22 @@
+footer.footer: .footer__inner
+  .wrap
+    = ["©#{Time.now.year}",
+        (link_to "Privacy Policy",
+          "//www.iubenda.com/privacy-policy/#{I18n.t('iubenda_id')}",
+          class: "iubenda-nostyle no-brand iubenda-embed",
+          target: "_blank",
+          rel: "noreferrer"),
+        (link_to "Cookie Policy",
+          "//www.iubenda.com/privacy-policy/#{I18n.t('iubenda_id')}/cookie-policy",
+          class: "iubenda-nostyle no-brand iubenda-embed",
+          target: "_blank", rel: "noreferrer")].join(" - ")
+
+    p
+      = [(link_to t('credits.button_label'),
+        t('credits.url'),
+        title: t('credits.title'),
+        target: "_blank",
+        rel: "noreferrer"),
+        (link_to "Made with DatoCMS",
+          "https://datocms.com",
+          target: "_blank", rel: "noreferrer")].join(" - ")

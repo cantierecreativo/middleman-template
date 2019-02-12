@@ -1,0 +1,38 @@
+en:
+  iubenda_id: QQQQQQQQ
+  contact_email: "test@cantierecreativo.net"
+
+  index_lang:
+    it: "Versione italiana"
+    en: "English version"
+
+  locales_label:
+    it: "Italiano"
+    en: "English"
+
+  credits:
+    button_label: "Design & Development by Lean Panda"
+    url: "https://www.leanpanda.com"
+    title: "Ruby on Rails Agency Lean Panda based in Florence"
+
+  nav:
+    menu: "Menu"
+    home: "HOME"
+    menu_close: "Close"
+
+  form:
+    label:
+      first_name: "Name"
+      last_name: "Surname"
+      email: "Email"
+      phone: "Phone"
+      message: "Message"
+      privacy: "Privacy"
+    placeholder:
+      first_name: "Name"
+      last_name: "Surname"
+      email: "Email"
+      phone: "Phone"
+      message: "Message"
+      privacy: "Privacy"
+    submit: "Send"

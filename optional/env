@@ -2,6 +2,9 @@
 DATO_API_TOKEN=<%= @token %>
 <%- end -%>
 BASE_URL=<%= @base_url %>
+<%- if @langs -%>
+LANGS=<%= @langs %>
+<%- end -%>
 BUILD_ENV=development
 GOOGLE_ANALYTICS_KEY=UA-XXXX-YY
 IUBENDA_SITE_ID=ZZZZZ
