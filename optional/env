@@ -8,4 +8,3 @@ LANGS=<%= @langs %>
 BUILD_ENV=development
 GOOGLE_ANALYTICS_KEY=UA-XXXX-YY
 IUBENDA_SITE_ID=ZZZZZ
-CONTACT_EMAIL=test@cantierecreativo.net

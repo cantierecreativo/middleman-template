@@ -1,4 +1,4 @@
-form.form action="https://formspree.io/#{ENV.fetch('CONTACT_EMAIL')}" method="POST"
+form.form action="https://formspree.io/#{I18n.t('contact_email')}" method="POST"
   fieldset
     .form__field
       = label_tag t('form.label.first_name'), class: "input__label"
