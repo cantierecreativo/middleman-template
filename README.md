@@ -29,6 +29,27 @@ to [Netlify].
 
 ## Configuration
 
+This template require:
+
+- languages string (it,en)
+- DATO API read only
+- base URL of site
+- remote git repository to store ORIGIN
+- remote git repository to store PRODUCTION and Netlify buildable files
+
+In the `config.rb` you can find many helpers to manage active links:
+
+- `active_link_to`
+- `localized_paths_for`
+- `favicon_json_path`
+
+Also there are exist pages:
+
+- homepage
+- contact
+
+## Features and Tools
+
 This template comes with the following features and tools:
 
 - [middleman-dato]: An extension for connect with DatoCMS.
