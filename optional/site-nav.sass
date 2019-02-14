@@ -1,0 +1,60 @@
+.site-nav
+  background: $base-body-color
+  +vertical-padding(2)
+  position: relative
+
+.site-nav__inner
+  display: flex
+  align-content: center
+  justify-content: space-between
+  align-items: center
+
+.site-nav__left
+  flex: 1 0 20%
+  max-width: 20%
+  width: 100%
+
+.site-nav__logo
+  display: block
+
+.site-nav__right
+  flex: 1 0 60%
+  max-width: 60%
+  width: 100%
+  text-align: right
+
+.site-nav__topbar
+  display: block
+
+.site-nav__topbar__locale-switcher
+  display: inline-block
+  +horizontal-padding(1)
+
+.site-nav__topbar__locale-switcher__link
+  color: #FFFFFF
+
+  &.is-current
+
+.site-nav__menu-toggler
+  display: block
+  +font-size(alpha)
+  color: #FFFFFF
+
+.site-nav__menu
+  display: none
+
+.site-nav__menu__item
+  display: inline-block
+  +horizontal-padding(1)
+
+.site-nav__menu__link
+  color: #FFFFFF
+
+  &.is-active
+
++at-breakpoint(desk)
+  .site-nav__menu-toggler
+    display: none
+
+  .site-nav__menu
+    display: block
