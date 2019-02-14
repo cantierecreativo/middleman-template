@@ -6,6 +6,10 @@ to [Netlify].
 [cantierecreativo]: https://cantierecreativo.net/
 [Netlify]: https://www.netlify.com/
 
+## Requirements
+
+This project requires [Node.js](https://nodejs.org/) (v9.3.0) with 
+[yarn](https://yarnpkg.com/) and [Ruby](https://ruby-lang.org) (v2.4.3)
 
 ## Usage
 
@@ -21,32 +25,75 @@ to [Netlify].
     gem install middleman
     ```
 
-3. Then run:
+3. Install or set Node (9.3.0) with NVM:
 
     ```
-    middleman init my_project -T=cantierecreativo/middleman-template
+    nvm install/use 9.3.0
+    ```
+
+4. Then run:
+
+    ```
+    middleman init project -T=cantierecreativo/middleman-template
     ```
 
 ## Configuration
 
-This template require:
+The template init scripts ask you:
 
-- languages string (it,en)
+- Languages string (it,en)
 - DATO API read only
-- base URL of site
-- remote git repository to store ORIGIN
-- remote git repository to store PRODUCTION and Netlify buildable files
+- Base URL of site (https://sitedomain.ext)
+- Remote git repository to store ORIGIN
+- Remote git repository to store PRODUCTION and Netlify buildable files
 
-In the `config.rb` you can find many helpers to manage active links:
+After this questions, the init script install all dependencies and create
+complete directory site.
 
-- `active_link_to`
-- `localized_paths_for`
-- `favicon_json_path`
+You sould change the default data into `data/config.json` and create the proxy
+routing for the new site.
 
-Also there are exist pages:
+The final directory structure is:
 
-- homepage
-- contact
+```
+project/
++-- .gitignore
++-- Gemfile
++-- Gemfile.lock
++-- config.rb
++-- package.json
++-- webpack.config.js
++-- yarn.lock
++-- config
+|   +-- i18n-tasks.yml
++-- data
+|   +-- config.json
++-- locales
+|   +-- it.yml
+|   +-- en.yml
++-- source
+    +-- images/
+    +-- fonts/
+    +-- localizable/
+    |   +-- index.html.slim
+    +-- partials/
+    +-- templates
+    |   +-- browserconfig.xml.erb
+    |   +-- redirects.txt.erb
+    |   +-- site.webmanifest.erb
+    |   +-- contact_page.html.slim
+    +-- 404.html.slim
+    +-- index.html.erb
+    +-- javascripts
+    ¦   +-- index.js
+    +-- layouts
+    ¦   +-- layout.slim
+    +-- stylesheets
+        +-- _application.sass
+```
+
+To the list of helpers in the system read [HELPERS.md](HELPERS.md)
+To the example of code and functions (JS and CSS) that template expose read [EXAMPLE.md](EXAMPLE.md)
 
 ## Features and Tools
 
