@@ -50,6 +50,14 @@ module Middleman
       template 'optional/svg/svg.pattern', 'source/fonts/svg/svg.pattern'
     end
 
+    def setup_addition_sass
+      remove_file 'source/stylesheets/blocks/bemo/_canvas.sass'
+      remove_file 'source/stylesheets/mixins/_canvas-layout.sass'
+      template 'optional/canvas.sass', 'source/stylesheets/blocks/_canvas.sass'
+      template 'optional/canvas-layout.sass', 'source/stylesheets/mixins/_canvas-layout.sass'
+      template 'optional/site-nav.sass', 'source/stylesheets/blocks/_site-nav.sass'
+    end
+
     def setup_remotes
       template 'optional/README.md', 'README.md'
 
