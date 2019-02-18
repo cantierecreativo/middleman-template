@@ -3,7 +3,7 @@ global.jQuery = $;
 
 import modernizr from 'modernizr';
 import slick from 'slick-carousel';
-import anime from 'anime.es';
+const anime = require('anime');
 
 $(document).ready(function() {
   // CANVAS ASIDE LEFT
@@ -22,7 +22,6 @@ $(document).ready(function() {
   });
 
   // CAROUSEL WITH SLICK
-  /*
   $(".carousel").slick({
     mobileFirst: true,
     slidesToShow: 1,
@@ -32,5 +31,11 @@ $(document).ready(function() {
     autoplay: false,
     adaptiveHeight: true
   })
-  */
+
+  anime({
+    targets: '.site-nav__logo',
+    translateX: 0,
+    rotate: '1turn',
+    duration: 1200
+  });
 });
