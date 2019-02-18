@@ -3,6 +3,7 @@ global.jQuery = $;
 
 import modernizr from 'modernizr';
 import slick from 'slick-carousel';
+import anime from 'anime.es';
 
 $(document).ready(function() {
   // CANVAS ASIDE LEFT
