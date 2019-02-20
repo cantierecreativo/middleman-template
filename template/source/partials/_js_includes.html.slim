@@ -1,4 +1,6 @@
 = javascript_include_tag  "application"
+- if data.config.google_maps_key
+  = javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{data.config.google_maps_key}&callback=initMap", async: true, defer: true
 
 = yield_content :page_js
 
@@ -9,7 +11,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', '#{ENV["GOOGLE_ANALYTICS_KEY"]}', 'auto');
+      ga('create', '#{data.config.google_analytics_key}', 'auto');
       ga('set', 'anonymizeIP', true);
       ga('send', 'pageview');
 
@@ -18,7 +20,7 @@
     var _iub = _iub || [];
     _iub.csConfiguration = {
       cookiePolicyId: #{I18n.t('iubenda_id')},
-      siteId: '#{ENV["IUBENDA_SITE_ID"]}',
+      siteId: '#{data.config.iubenda_site_id}',
       lang: '#{I18n.locale}'
     };
 
