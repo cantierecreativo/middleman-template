@@ -3,7 +3,7 @@ global.jQuery = $;
 
 import modernizr from 'modernizr';
 import slick from 'slick-carousel';
-const anime = require('anime');
+import anime from 'animejs/lib/anime';
 
 $(document).ready(function() {
   // CANVAS ASIDE LEFT
