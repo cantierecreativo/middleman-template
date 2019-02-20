@@ -65,8 +65,7 @@ module.exports = {
       "node_modules"
     ],
     alias: {
-      modernizr$: path.resolve(__dirname, ".modernizrrc.js"),
-      'anime': "animejs/lib/anime"
+      modernizr$: path.resolve(__dirname, ".modernizrrc.js")
     }
   },
   output: {
