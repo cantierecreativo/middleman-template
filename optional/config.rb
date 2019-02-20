@@ -93,8 +93,10 @@ helpers do
   # Custom helper to theme
   def site_nav_menu
     <%- if @token -%>
-    # dato.about_page,
-    # dato.contact_page
+    [
+      # dato.about_page,
+      # dato.contact_page
+    ]
     <%- else -%>
     []
     <%- end -%>
