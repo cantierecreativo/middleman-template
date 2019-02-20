@@ -1,2 +1,20 @@
 /- content_for(:head)
 /  == dato_meta_tags(page)
+
+section
+  .wrap
+    h1.space--both-1= lorem.sentence
+    .formatted-content
+      = lorem.paragraphs(5)
+
+section.space--both-2
+  .wrap
+    .grid--center
+      .grid__item.desk-8-12
+        .carousel
+          .carousel__item
+            = image_tag("//via.placeholder.com/1920x750/FF0000", alt: "placeholder")
+          .carousel__item
+            = image_tag("//via.placeholder.com/1920x750/0000FF", alt: "placeholder")
+          .carousel__item
+            = image_tag("//via.placeholder.com/1920x750/008000", alt: "placeholder")

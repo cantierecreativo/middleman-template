@@ -10,12 +10,9 @@
     "start:proxy": "./proxy/proxy.js",
     "start:lambda": "netlify-lambda serve -c netlify.config.js functions/source",
     "build:lambda": "netlify-lambda build -c netlify.config.js functions/source",
-    "start:webpack": "webpack --watch -d --progress --color",
-    "build:webpack": "webpack --bail -p",
     "lint": "yarn run eslint source/javascripts/*",
     "lint:autocorrect": "eslint source/javascripts/* --fix",
-    "start": "concurrently \"npm run start:proxy\" \"npm run start:lambda\" \"npm run start:webpack\"",
-    "build": "concurrently \"npm run build:lambda\" \"bundle exec middleman build\""
+    "start": "concurrently \"npm run start:proxy\" \"npm run start:lambda\" \"npm run start:webpack\""
   },
   "author": "Cantiere Creativo s.r.l.",
   "main": "index.js",
@@ -24,6 +21,7 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
+    "animejs": "^3.0.1",
     "autoprefixer": "7.2.5",
     "babel-loader": "^8.0.5",
     "bemo-scaffold": "*",

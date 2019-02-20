@@ -92,7 +92,14 @@ helpers do
 
   # Custom helper to theme
   def site_nav_menu
+    <%- if @token -%>
+    [
+      # dato.about_page,
+      # dato.contact_page
+    ]
+    <%- else -%>
     []
+    <%- end -%>
   end
 end
 
@@ -113,9 +120,19 @@ end
 #   )
 
 #   MULTILANG SAMPLES
-
+#
 #   langs.each do |locale|
 #     I18n.with_locale(locale) do
+#       proxy "/#{locale}/index.html",
+#         "/localizable/index.html",
+#         locals: { page: dato.homepage },
+#         locale: locale
+#
+#       proxy "/#{locale}/#{dato.about_page.slug}/index.html",
+#         "/templates/about_page.html",
+#         locals: { page: dato.about_page },
+#         locale: locale
+#
 #       dato.aritcles.each do |article|
 #         I18n.locale = locale
 #         proxy "/#{locale}/articles/#{article.slug}/index.html", "/templates/article_template.html", :locals => { article: article }, ignore: true, locale: locale
@@ -135,6 +152,10 @@ end
 <%- if @langs -%>
 langs.each do |locale|
   I18n.with_locale(locale) do
+    proxy "/#{locale}/index.html",
+      "/localizable/index.html",
+      locale: locale
+
     proxy "/#{locale}/contact/index.html",
       "templates/contact_page.html",
       locals: { locale: I18n.locale },

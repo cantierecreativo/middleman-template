@@ -56,6 +56,8 @@ module Middleman
       template 'optional/canvas.sass', 'source/stylesheets/blocks/_canvas.sass'
       template 'optional/canvas-layout.sass', 'source/stylesheets/mixins/_canvas-layout.sass'
       template 'optional/site-nav.sass', 'source/stylesheets/blocks/_site-nav.sass'
+      template 'optional/site-footer.sass', 'source/stylesheets/blocks/_site-footer.sass'
+      template 'optional/aside-nav.sass', 'source/stylesheets/blocks/_aside-nav.sass'
     end
 
     def setup_remotes
