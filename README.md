@@ -15,42 +15,42 @@ This project requires [Node.js](https://nodejs.org/) (v9.3.0) with
 
 1. Install or set Ruby (2.4.3) with RBENV:
 
-    ```
-    rbenv install/set 2.4.3
-    ```
+```
+$ rbenv install/set 2.4.3
+```
 
 2. Install or use Middleman gem:
 
-    ```
-    gem install middleman
-    ```
+```
+$ gem install middleman
+```
 
 3. Install or set Node (9.3.0) with NVM:
 
-    ```
-    nvm install/use 9.3.0
-    ```
+```
+$ nvm install/use 9.3.0
+```
 
 4. Then run:
 
-    ```
-    middleman init project -T=cantierecreativo/middleman-template
-    ```
+```
+$ middleman init project -T=cantierecreativo/middleman-template
+```
 
 ## Configuration
 
-The template init scripts ask you:
+The template init scripts asks you for the follwoing information:
 
 - Languages string (it,en)
-- DATO API read only
+- DatoCMS read-only API token (from DatoCMS settings -> API Tokens)
 - Base URL of site (https://sitedomain.ext)
 - Remote git repository to store ORIGIN
 - Remote git repository to store PRODUCTION and Netlify buildable files
 
-After this questions, the init script install all dependencies and create
-complete directory site.
+After these questions, the init script installs all dependencies and creates
+the complete directory site.
 
-You sould change the default data into `data/config.json` and create the proxy
+You should change the default data in `data/config.json` and create the proxy
 routing for the new site.
 
 The final directory structure is:
@@ -92,8 +92,9 @@ project/
         +-- _application.sass
 ```
 
-To the list of helpers in the system read [HELPERS.md](HELPERS.md)
-To the example of code and functions (JS and CSS) that template expose read [EXAMPLE.md](EXAMPLE.md)
+* To see the list of helpers in the system read [HELPERS.md](HELPERS.md)
+* To see examples of code (JS and CSS) that the template exposes read
+[EXAMPLE.md](EXAMPLE.md)
 
 ## Features and Tools
 
