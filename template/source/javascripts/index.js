@@ -1,11 +1,14 @@
 var $ = require("jquery");
 global.jQuery = $;
 
+require("@fancyapps/fancybox");
 import modernizr from 'modernizr';
 import slick from 'slick-carousel';
 import anime from 'animejs/lib/anime';
+import AOS from 'aos';
 
 $(document).ready(function() {
+  AOS.init({disable: 'mobile'});
   // CANVAS ASIDE LEFT
   $(".js-nav-toggler--left").click(function(e) {
     e.preventDefault;
@@ -29,6 +32,7 @@ $(document).ready(function() {
     arrows: false,
     infinite: true,
     autoplay: false,
+    lazyLoad: "ondemand",
     adaptiveHeight: true
   })
 

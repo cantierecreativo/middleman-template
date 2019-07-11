@@ -2,6 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 var svgoConfig = {
   multipass: true,
@@ -133,6 +134,7 @@ module.exports = {
       spriteAttrs: {
         id: 'svg-sprite-inline'
       }
-    }) // render plain sprite without styles and usages in extract mode, as we want it
+    }),
+    new MinifyPlugin()
   ]
 };
