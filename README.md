@@ -8,15 +8,15 @@ to [Netlify].
 
 ## Requirements
 
-This project requires [Node.js](https://nodejs.org/) (v9.3.0) with 
-[yarn](https://yarnpkg.com/) and [Ruby](https://ruby-lang.org) (v2.4.3)
+This project requires [Node.js](https://nodejs.org/) (v10.15.3) with 
+[yarn](https://yarnpkg.com/) and [Ruby](https://ruby-lang.org) (v2.6.2)
 
 ## Usage
 
-1. Install or set Ruby (2.4.3) with RBENV:
+1. Install or set Ruby (2.6.2) with RBENV:
 
 ```
-$ rbenv install/set 2.4.3
+$ rbenv install/set 2.6.2
 ```
 
 2. Install or use Middleman gem:
@@ -25,10 +25,10 @@ $ rbenv install/set 2.4.3
 $ gem install middleman
 ```
 
-3. Install or set Node (9.3.0) with NVM:
+3. Install or set Node (10.15.3) with NVM:
 
 ```
-$ nvm install/use 9.3.0
+$ nvm install/use 10.15.3
 ```
 
 4. Then run:
