@@ -8,7 +8,7 @@ to [Netlify].
 
 ## Requirements
 
-This project requires [Node.js](https://nodejs.org/) (v10.15.3) with 
+This project requires [Node.js](https://nodejs.org/) (v9.3.0) with 
 [yarn](https://yarnpkg.com/) and [Ruby](https://ruby-lang.org) (v2.6.2)
 
 ## Usage
@@ -25,10 +25,10 @@ $ rbenv install/set 2.6.2
 $ gem install middleman
 ```
 
-3. Install or set Node (10.15.3) with NVM:
+3. Install or set Node (9.3.0) with NVM:
 
 ```
-$ nvm install/use 10.15.3
+$ nvm install/use 9.3.0
 ```
 
 4. Then run:
