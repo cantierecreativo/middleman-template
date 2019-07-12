@@ -6,6 +6,8 @@ section
     h1.space--both-1= lorem.sentence
     .formatted-content
       = lorem.paragraphs(5)
+      / Test image with lazyload options
+      /= image_lazy(dato.homepage.image, {w: 1920}, [[960, 480], [1080, 720], [1536, 1024], [1920, 1536]])
 
 section.space--both-2
   .wrap
