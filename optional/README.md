@@ -53,6 +53,13 @@ The template use many custom helpers:
 * `favicon_json_path("path of favicon image")` is used inside `source/templates/site.webmanifest.erb`
 * `site_name_menu` is an array with all DatoCMS singleton item
 
+```
+image_lazy(IMAGE_DATO_FIELD, IMGIX_HASH_URL_OPTIONS, ARRAY_SIZES, BASE_IMAGE_TAG_ATTRIBUTES)
+
+# Example
+= image_lazy(dato.model.image_field, {w: 1920}, [[960, 480], [1080, 720], [1536, 1024], [1920, 1536]], {alt: "custom alt"})
+```
+
 ## Related Resources
 
 To manage DatoCMS Modular Content into page if you use many block into same page:
