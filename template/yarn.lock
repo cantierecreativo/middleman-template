@@ -3127,6 +3127,11 @@ lazy-cache@^0.2.3:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-0.2.7.tgz#7feddf2dcb6edb77d11ef1d117ab5ffdf0ab1b65"
 
+lazyload@^2.0.0-rc.2:
+  version "2.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/lazyload/-/lazyload-2.0.0-rc.2.tgz#c774eb7966f334c9bed2f27580fc333a770eb256"
+  integrity sha512-v3OKwYrKHX09eAyeAmkpvVCF5qWZo8rxERT9AVOUFaRwlTIuCyMYVBfHYSra1uyBdKDEHnUkvpZTLgNWI9Y7lA==
+
 lcid@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
