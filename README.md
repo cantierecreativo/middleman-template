@@ -107,6 +107,10 @@ This template comes with the following features and tools:
 - [middleman-search_engine_sitemap]: An extension to manage sitemap.
 - [Sass]: CSS pre-processor.
 - [Slim]: Templating engine to reduce the syntax to the essential parts.
+- [lazyload]: Delay loading of images until user scrolls to them
+- [AOS]: Animate On Scroll Library
+- [animeJS]: Anime.js is a lightweight JavaScript animation library with a simple, yet powerful API
+- [fancybox]: JavaScript lightbox library for presenting various types of media
 
 [middleman-dato]: https://github.com/datocms/middleman-dato
 [middleman-svg]: https://github.com/cantierecreativo/middleman-svg
@@ -114,7 +118,10 @@ This template comes with the following features and tools:
 [middleman-search_engine_sitemap]: https://github.com/Aupajo/middleman-search_engine_sitemap
 [Sass]: https://github.com/sass/sass
 [Slim]: https://github.com/slim-template/slim
-
+[lazyload]: https://appelsiini.net/projects/lazyload
+[AOS]: http://michalsnik.github.io/aos/
+[animeJS]: https://animejs.com/
+[fancybox]: https://www.fancyapps.com/fancybox/3/
 
 ## License
 
