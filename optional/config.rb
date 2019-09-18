@@ -85,7 +85,7 @@ helpers do
     end
 
     content_tag(:svg, default_attributes) do
-      content_tag(:use, "", "xlink:href" => "##{name}")
+      content_tag(:use, "", "xlink:href" => "#icons-#{name}")
     end
   end
   alias_method :i, :icon
