@@ -43,13 +43,6 @@ module Middleman
       directory 'optional/slick', 'source/stylesheets/blocks/slick', exclude_pattern: /\.DS_Store$/
     end
 
-    def setup_sass
-      # SVG INJECT
-      template 'optional/svg.sass', 'source/stylesheets/blocks/_svg.sass'
-      template 'optional/svg/svg_icons.js', 'source/fonts/svg/svg_icons.js'
-      template 'optional/svg/svg.pattern', 'source/fonts/svg/svg.pattern'
-    end
-
     def setup_addition_sass
       remove_file 'source/stylesheets/blocks/bemo/_canvas.sass'
       remove_file 'source/stylesheets/mixins/_canvas-layout.sass'
@@ -58,6 +51,7 @@ module Middleman
       template 'optional/site-nav.sass', 'source/stylesheets/blocks/_site-nav.sass'
       template 'optional/site-footer.sass', 'source/stylesheets/blocks/_site-footer.sass'
       template 'optional/aside-nav.sass', 'source/stylesheets/blocks/_aside-nav.sass'
+      template 'optional/svg.sass', 'source/stylesheets/blocks/_svg.sass'
     end
 
     def setup_remotes
