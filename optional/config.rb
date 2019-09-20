@@ -104,7 +104,7 @@ helpers do
       data: {src: image.url(url_options), srcset: sizes_string.join(", ")}
     })
 
-    image_tag(image.url(url_options.merge!({w: sizes.first.last})), options)
+    image_tag(image.url(url_options.merge!({w: sizes.first.first})), options)
   end
 
   def image_tag(path, options_hash = {})
