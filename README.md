@@ -48,7 +48,7 @@ $ middleman init {{project name}} -T=cantierecreativo/middleman-template
 
 ## Configuration
 
-The template init scripts asks you for the follwoing information:
+The template init scripts asks you for the following information:
 
 - Languages string (it,en)
 - DatoCMS read-only API token (from DatoCMS settings -> API Tokens)
@@ -109,14 +109,14 @@ project/
 
 This template comes with the following features and tools:
 
-- [middleman-dato]: An extension for connect with DatoCMS.
-- [middleman-svg]: An extension for inlining SVGs in your views.
+- [middleman-dato]: An extension to connect with DatoCMS
+- [middleman-svg]: An extension for inlining SVGs in your views
 - [middleman-minify-html]: Minifies whitespace around HTML when the site is
-  built.
-- [middleman-search_engine_sitemap]: An extension to manage sitemap.
-- [Sass]: CSS pre-processor.
-- [Slim]: Templating engine to reduce the syntax to the essential parts.
-- [lazyload]: Delay loading of images until user scrolls to them
+  built
+- [middleman-search_engine_sitemap]: An extension to manage sitemap
+- [Sass]: CSS pre-processor
+- [Slim]: Templating engine to reduce HTML syntax to the essential parts
+- [lazyload]: Delay loading of images until the user scrolls to them
 - [AOS]: Animate On Scroll Library
 - [animeJS]: Anime.js is a lightweight JavaScript animation library with
   a simple, yet powerful API
@@ -135,7 +135,7 @@ This template comes with the following features and tools:
 
 ## Development
 
-Build a project for the [local template][local middleman template]:
+Build a project using a [local template][local middleman template]:
 
 ```sh
 $ middleman init {{project name}} -T=file:///my/path/to/middleman-template
