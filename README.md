@@ -1,39 +1,39 @@
 # Middleman Template
 
-The base Middleman application used at [cantierecreativo], ready to deploy
-to [Netlify].
+The base Middleman application used at [Cantiere creativo][cantierecreativo],
+ready to deploy to [Netlify].
 
 [cantierecreativo]: https://cantierecreativo.net/
 [Netlify]: https://www.netlify.com/
 
 ## Requirements
 
-This project requires [Node.js](https://nodejs.org/) (v9.3.0) with 
+This project requires [Node.js](https://nodejs.org/) (v9.3.0) with
 [yarn](https://yarnpkg.com/) and [Ruby](https://ruby-lang.org) (v2.6.2)
 
 ## Usage
 
 1. Install or set Ruby (2.6.2) with RBENV:
 
-```
+```sh
 $ rbenv install/set 2.6.2
 ```
 
 2. Install or use Middleman gem:
 
-```
+```sh
 $ gem install middleman
 ```
 
 3. Install or set Node (9.3.0) with NVM:
 
-```
+```sh
 $ nvm install/use 9.3.0
 ```
 
 4. Then run:
 
-```
+```sh
 $ middleman init project -T=cantierecreativo/middleman-template
 ```
 
@@ -109,7 +109,8 @@ This template comes with the following features and tools:
 - [Slim]: Templating engine to reduce the syntax to the essential parts.
 - [lazyload]: Delay loading of images until user scrolls to them
 - [AOS]: Animate On Scroll Library
-- [animeJS]: Anime.js is a lightweight JavaScript animation library with a simple, yet powerful API
+- [animeJS]: Anime.js is a lightweight JavaScript animation library with
+  a simple, yet powerful API
 - [fancybox]: JavaScript lightbox library for presenting various types of media
 
 [middleman-dato]: https://github.com/datocms/middleman-dato
