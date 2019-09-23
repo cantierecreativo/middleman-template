@@ -8,8 +8,11 @@ ready to deploy to [Netlify].
 
 ## Requirements
 
-This project requires [Node.js](https://nodejs.org/) (v9.3.0) with
-[yarn](https://yarnpkg.com/) and [Ruby](https://ruby-lang.org) (v2.6.2)
+This project requires [node.js] (v9.3.0) with [yarn] and [ruby] (v2.6.2)
+
+[node.js]: https://nodejs.org/
+[yarn]: https://yarnpkg.com/
+[ruby]: https://ruby-lang.org
 
 ## Usage
 
@@ -49,7 +52,7 @@ The template init scripts asks you for the follwoing information:
 
 - Languages string (it,en)
 - DatoCMS read-only API token (from DatoCMS settings -> API Tokens)
-- Base URL of site (https://sitedomain.ext)
+- Base URL of site (e.g. "https://sitedomain.ext")
 - Remote git repository to store ORIGIN
 - Remote git repository to store PRODUCTION and Netlify buildable files
 
