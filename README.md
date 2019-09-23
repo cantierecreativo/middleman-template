@@ -13,28 +13,34 @@ This project requires [Node.js](https://nodejs.org/) (v9.3.0) with
 
 ## Usage
 
-1. Install or set Ruby (2.6.2) with RBENV:
+1. Install and select Ruby (2.6.2) with [rbenv]:
 
 ```sh
-$ rbenv install/set 2.6.2
+$ rbenv install 2.6.2
+$ rbenv shell 2.6.2
 ```
 
-2. Install or use Middleman gem:
+[rbenv]: https://github.com/rbenv/rbenv
+
+2. Install the Middleman gem:
 
 ```sh
 $ gem install middleman
 ```
 
-3. Install or set Node (9.3.0) with NVM:
+3. Install and select Node (9.3.0) with [nvm]:
 
 ```sh
-$ nvm install/use 9.3.0
+$ nvm install 9.3.0
+$ nvm use 9.3.0
 ```
+
+[nvm]: https://github.com/nvm-sh/nvm
 
 4. Then run:
 
 ```sh
-$ middleman init project -T=cantierecreativo/middleman-template
+$ middleman init {{project name}} -T=cantierecreativo/middleman-template
 ```
 
 ## Configuration
@@ -124,9 +130,19 @@ This template comes with the following features and tools:
 [animeJS]: https://animejs.com/
 [fancybox]: https://www.fancyapps.com/fancybox/3/
 
+## Development
+
+Build a project for the [local template][local middleman template]:
+
+```sh
+$ middleman init {{project name}} -T=file:///my/path/to/middleman-template
+```
+
+[local middleman template]: https://middlemanapp.com/advanced/project-templates/#local-template
+
 ## License
 
-Copyright © 2019 CantiereCreativo. This is free software, and may
+Copyright © 2019 Cantiere Creativo. This is free software, and may
 be redistributed under the terms specified in the [LICENSE] file.
 
 [license]: LICENSE.md
