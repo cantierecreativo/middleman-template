@@ -13,5 +13,5 @@
       - site_nav_menu.each do |page|
         li.aside-nav__menu__item
           = active_link_to page.menu_label,
-            "/#{I18n.locale}/#{page.slug}",
+            locale_path(page.slug),
             class: "aside-nav__menu__link"

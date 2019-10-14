@@ -1,3 +1,5 @@
+require "lib/path_helpers"
+
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
@@ -7,14 +9,15 @@ set :url_root, ENV.fetch('BASE_URL')
 ignore '/templates/*'
 
 <%- if @langs -%>
-langs = ENV.fetch('LANGS').split(",").map(&:to_sym)
-activate :i18n, langs: langs, mount_at_root: false
+LOCALES = ENV['LANGS'].split(",").map(&:to_sym)
+activate :i18n, langs: LOCALES, mount_at_root: LOCALES[0]
 <%- end -%>
 
 activate :asset_hash
 activate :directory_indexes
 activate :pagination
 activate :inline_svg
+
 <%- if @token -%>
 activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: true
 <%- end -%>
@@ -46,29 +49,7 @@ configure :development do
 end
 
 helpers do
-  def active?(url)
-    (url === "/#{I18n.locale}/" && current_page.url === "/#{I18n.locale}/") ||
-      (url != "/#{I18n.locale}/" && current_page.url[0...-1].eql?(url)) ||
-      url == current_page.url
-  end
-
-  def active_link_to(name, url, options = {})
-    options[:class] = options.fetch(:class, "") + " is-active" if active?(url)
-    link_to name, url, options
-  end
-
-  def localized_paths_for(page)
-    localized_paths = {}
-    sitemap.resources.each do |resource|
-      next if !resource.is_a?(Middleman::Sitemap::ProxyResource)
-      unless current_page.path == "404.html" || current_page.path == "index.html"
-        if resource.target_resource == page.target_resource
-          localized_paths[resource.metadata[:options][:locale]] = resource.url
-        end
-      end
-    end
-    localized_paths
-  end
+  include PathHelpers
 
   def favicon_json_path(path, escape = '\/')
     image_path(path).gsub(/\//, escape)
@@ -179,13 +160,15 @@ end
 <%- end -%>
 
 <%- if @langs -%>
-langs.each do |locale|
+LOCALES.each do |locale|
   I18n.with_locale(locale) do
-    proxy "/#{locale}/index.html",
+    prefix = locale == LOCALES[0] ? "" : "/#{locale}"
+
+    proxy "#{prefix}/index.html",
       "/localizable/index.html",
       locale: locale
 
-    proxy "/#{locale}/contact/index.html",
+    proxy "#{prefix}/contact/index.html",
       "templates/contact_page.html",
       locals: { locale: I18n.locale },
       locale: locale
