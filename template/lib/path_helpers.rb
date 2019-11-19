@@ -24,6 +24,8 @@ module PathHelpers
     sitemap.resources.each do |resource|
       next if !resource.is_a?(Middleman::Sitemap::ProxyResource)
 
+      next if !page.respond_to?(:target_resource)
+      next if !resource.respond_to?(:target_resource)
       next if resource.target_resource != page.target_resource
       next if resource.metadata[:locals] != page.metadata[:locals]
 
