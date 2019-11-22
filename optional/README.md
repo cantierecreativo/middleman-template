@@ -13,19 +13,20 @@ yarn install
 
 ## Deploy Staging/Production
 
-To deploy the project you need to create accessible remote for Netlify. The normal use is generate that into gitlab.com
-After this you need generate new project inside Netlify and connect with GitLab repository.
+
+To deploy the project you need to create remote access for Netlify. This is commonly done from gitlab.com.
+You then need to generate a new project with Netlify and connect it to the GitLab repository.
 
 *N.B.*
-  If the project he needs multiple environments create many branch inside same repository whose name identifies the environments.
-  Netlify question you what branch use to deploy.
+  If the project needs multiple environments, you should create multiple branches within the repository whose name identifies the environments.
+  Netlify will ask you which branch to use for deployment.
 
-Copy and create the ENV settings into Netlify to correct deploy.
+Copy the ENV settings into Netlify to ensure correct deployment.
 
 
 ## Default Settings
 
-You can find the base config data inside `data/config.json` and another inside `.env`.
+You can find the base config data in `data/config.json` and `.env`.
 
 ```json
 {
@@ -46,12 +47,12 @@ LANGS=yy
 ```
 
 ## Custom Helpers
-The template use many custom helpers:
+The template uses various custom helpers:
 
-* `icon("name of svg", {class: "", id: "", data: {role: {}, title: {}}})` is used to generate icon from inline svg and not with the font
-* `localized_path_for(current_page)` is used to generate link to witch languages
-* `favicon_json_path("path of favicon image")` is used inside `source/templates/site.webmanifest.erb`
-* `site_name_menu` is an array with all DatoCMS singleton item
+* `icon("name of svg", {class: "", id: "", data: {role: {}, title: {}}})` is used to generate an icon from inline svg and not with the font
+* `localized_path_for(current_page)` is used to generate a link to switch between languages
+* `favicon_json_path("path of favicon image")` is used in `source/templates/site.webmanifest.erb`
+* `site_name_menu` is an array with all DatoCMS singleton items
 
 ```
 image_lazy(IMAGE_DATO_FIELD, IMGIX_HASH_URL_OPTIONS, ARRAY_SIZES, BASE_IMAGE_TAG_ATTRIBUTES)
@@ -62,7 +63,7 @@ image_lazy(IMAGE_DATO_FIELD, IMGIX_HASH_URL_OPTIONS, ARRAY_SIZES, BASE_IMAGE_TAG
 
 ## Related Resources
 
-To manage DatoCMS Modular Content into page if you use many block into same page:
+If you use multiple blocks in the same page, you can manage Dato CMS Modular Content with:
 
 ```slim
 = partial "partials/modular-contents",
@@ -77,10 +78,10 @@ And create partials `source/partials/_modular-contents.html.slim` with:
   locals: {content: modular_content}
 ```
 
-After this you can create many partials into `source/partials/modular-contents/` with the name of `API_KEY` that you setup inside DatoCMS.
+After this you can create partials in `source/partials/modular-contents/` using the `API_KEY` that you set up in DatoCMS.
 
-Es.
-* In DatoCMS in the SINGLE INSTANCE model there is modular content block with name `modular_contents`.
-* Inside this module there are many blocks: `text_image_module`, `gallery_module`, `video_module`.
-* The partials in this case are: `source/partials/modular-contents/_text_image_module.html.slim`, `source/partials/modular-contents/_gallery_module.html.slim`, `source/partials/modular-contents/_video_module.html.slim`
+Ex.
+* In DatoCMS there is a modular content block called `modular_contents` in the single instance model.
+* Inside this module there are multiple blocks: `text_image_module`, `gallery_module` and `video_module`.
+* The partials in this case are: `source/partials/modular-contents/_text_image_module.html.slim`, `source/partials/modular-contents/_gallery_module.html.slim`, and `source/partials/modular-contents/_video_module.html.slim`
 
