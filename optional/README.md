@@ -1,7 +1,7 @@
 ## Setup
 
 ```
-git clone https://cantierecreativo/middleman-template
+git clone <%= @origin %>
 ```
 
 And then:
