@@ -1,7 +1,7 @@
 ## Setup
 
 ```
-git clone <%= @origin %>
+git clone https://cantierecreativo/middleman-template
 ```
 
 And then:
@@ -13,9 +13,7 @@ yarn install
 
 ## Deploy Staging/Production
 
-
-To deploy the project you need to create remote access for Netlify. This is commonly done from gitlab.com.
-You then need to generate a new project with Netlify and connect it to the GitLab repository.
+To deploy the project you need to create remote access for Netlify. This is commonly done using a gitlab.com repository. You then need to generate a new project with Netlify and connect it to the repository.
 
 *N.B.*
   If the project needs multiple environments, you should create multiple branches within the repository whose name identifies the environments.
@@ -63,7 +61,7 @@ image_lazy(IMAGE_DATO_FIELD, IMGIX_HASH_URL_OPTIONS, ARRAY_SIZES, BASE_IMAGE_TAG
 
 ## Related Resources
 
-If you use multiple blocks in the same page, you can manage Dato CMS Modular Content with:
+If you use multiple blocks in the same page, you can manage DatoCMS Modular Content with:
 
 ```slim
 = partial "partials/modular-contents",
@@ -84,4 +82,3 @@ Ex.
 * In DatoCMS there is a modular content block called `modular_contents` in the single instance model.
 * Inside this module there are multiple blocks: `text_image_module`, `gallery_module` and `video_module`.
 * The partials in this case are: `source/partials/modular-contents/_text_image_module.html.slim`, `source/partials/modular-contents/_gallery_module.html.slim`, and `source/partials/modular-contents/_video_module.html.slim`
-
