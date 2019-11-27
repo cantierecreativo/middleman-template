@@ -27,7 +27,6 @@ module Middleman
     def setup_bemo
       run 'yarn install'
       run './node_modules/.bin/bemo-scaffold -s source/stylesheets/'
-      run 'yarn webfonts'
 
       remove_file 'source/stylesheets/application.sass'
       template 'optional/_application.sass', 'source/stylesheets/_application.sass'

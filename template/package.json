@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "webpack --mode development --watch -d --progress --color",
     "build": "webpack --mode production --bail -p",
-    "webfonts": "bemo-webfonts -s source/fonts/svg -f source/fonts -S source/stylesheets/variables/_icon-glyphs.scss",
     "start:proxy": "./proxy/proxy.js",
     "start:lambda": "netlify-lambda serve -c netlify.config.js functions/source",
     "build:lambda": "netlify-lambda build -c netlify.config.js functions/source",
@@ -28,7 +27,6 @@
     "babel-loader": "^8.0.5",
     "babel-minify-webpack-plugin": "^0.3.1",
     "bemo-scaffold": "*",
-    "bemo-webfonts": "*",
     "compression-webpack-plugin": "^3.0.0",
     "css-loader": "^2.1.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
