@@ -24,16 +24,8 @@ module Middleman
       template 'optional/env', '.env'
     end
 
-    def setup_bemo
+    def setup
       run 'yarn install'
-      run './node_modules/.bin/bemo-scaffold -s source/stylesheets/'
-
-      remove_file 'source/stylesheets/application.sass'
-      template 'optional/_application.sass', 'source/stylesheets/_application.sass'
-      remove_file 'source/stylesheets/functions/_urls.sass'
-      template 'optional/urls.sass', 'source/stylesheets/functions/_urls.sass'
-      run 'mkdir -p source/stylesheets/blocks/bemo/'
-      run 'mv source/stylesheets/blocks/_* source/stylesheets/blocks/bemo/'
     end
 
     def add_slick_sass
@@ -43,9 +35,7 @@ module Middleman
     end
 
     def setup_addition_sass
-      remove_file 'source/stylesheets/blocks/bemo/_canvas.sass'
       remove_file 'source/stylesheets/mixins/_canvas-layout.sass'
-      template 'optional/canvas.sass', 'source/stylesheets/blocks/_canvas.sass'
       template 'optional/canvas-layout.sass', 'source/stylesheets/mixins/_canvas-layout.sass'
       template 'optional/site-nav.sass', 'source/stylesheets/blocks/_site-nav.sass'
       template 'optional/site-footer.sass', 'source/stylesheets/blocks/_site-footer.sass'

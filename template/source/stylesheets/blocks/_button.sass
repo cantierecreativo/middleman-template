@@ -1,0 +1,56 @@
+// Bemo Button component
+//
+// @example usage:
+//  .button, .button--black, .button--small
+
+.button
+  +button
+  @include button-size($button-padding-vertical, $button-padding-horizontal, $base-font-size)
+  border: $button-border-width solid transparent
+  @if $enable-button-rounded
+    border-radius: $button-border-radius
+  @if $enable-transitions
+    +base-transition('bounce', 'base')
+
+  // Block button
+  &--expand
+    display: block
+    width: 100%
+
+//
+// Button Sizes
+@if $enable-button-size
+  .button--small
+    @extend .button
+    @include button-size(6px, 10px, "smallprint")
+
+  @if $enable-button-colored
+    @each $color, $value in $all-colors
+      .button--small-#{$color}
+        @extend .button--small
+        @include button-variant($value, $value)
+
+    @each $color, $value in $all-colors
+      .button--small-#{$color}-outline
+        @extend .button--small
+        @include button-outline-variant($value)
+
+//
+// Alternate buttons
+@if $enable-button-colored
+  @each $color, $value in $all-colors
+    .button--#{$color}
+      @extend .button
+      @include button-variant($value, $value)
+
+  @each $color, $value in $all-colors
+    .button--#{$color}-outline
+      @extend .button
+      @include button-outline-variant($value)
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+  &.button--expand
+    width: 100%

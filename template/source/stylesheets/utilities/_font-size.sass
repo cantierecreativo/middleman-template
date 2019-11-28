@@ -1,0 +1,8 @@
+// Bemo font-size utility class
+//
+
+@each $name in map-keys($font-sizes)
+  $size: map-get($font-sizes, $name)
+
+  .#{$name}
+    +font-size($name)

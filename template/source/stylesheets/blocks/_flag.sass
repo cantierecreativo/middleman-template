@@ -1,0 +1,60 @@
+// Bemo Flag component to generate horizontal element with image anc body
+//
+// @example usage:
+//  .flag{--rev}
+//    .flag__image
+//    .flag__body
+//      .flag__body__title
+//      .flag__body__text
+
+.flag
+  background-color: $flag-body-color
+  display: table
+  width: 100%
+
+@if $enable-flag-colored
+  @each $color, $value in $all-colors
+    .flag--#{$color}
+      @extend .flag
+      +bg-variant($color)
+      color: color-invert($value)
+      @supports (--css: variables)
+        background-color: var(--color-#{$color})
+
+.flag--rev,
+.flag--top,
+.flag--bottom
+  @extend .flag
+
+.flag--rev
+  direction: rtl
+  text-align: left
+
+.flag__image,
+.flag__body
+  display: table-cell
+  vertical-align: middle
+
+  .flag--top &
+    vertical-align: top
+
+  .flag--bottom &
+    vertical-align: bottom
+
+.flag__image
+  padding-right: $flag-gutter
+  width: 25%
+
+  > img
+    display: block
+    max-width: none
+
+  .flag--rev &
+    padding-right: 0
+
+.flag__body
+  width: 75%
+
+  .flag--rev &
+    +horizontal-padding($flag-gutter)
+    direction: ltr

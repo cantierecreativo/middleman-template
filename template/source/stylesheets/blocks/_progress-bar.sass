@@ -1,0 +1,23 @@
+
+.progress-bar
+  +bg-variant("gray")
+  border-radius: $progress-border-radius
+  display: flex
+  height: $progress-base-height
+  overflow: hidden // force rounded corners by cropping it
+
+.progress-bar__line
+  +base-transition("ease-in-out", "base")
+  +bg-variant("black")
+  color: $white-color
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+  white-space: nowrap
+
+@each $color, $value in $all-colors
+  .progress-bar__line--#{$color}
+    @extend .progress-bar__line
+    +bg-variant($color)
+    color: color-invert($value)

@@ -1,0 +1,30 @@
+@mixin font-size($unit-font, $unit-line: false)
+  @if type-of($unit-font) == number and unit($unit-font) == "px"
+    +rem-rule(font-size, $unit-font)
+
+  @else if type-of($unit-font) == "string"
+    @if map-has-key($all-font-sizes, $unit-font)
+      +rem-rule(font-size, map-get($all-font-sizes, $unit-font))
+    @else
+      @warn "size ‘#{$unit-font}’ does not exist"
+
+  @else
+    @warn "size ‘#{$unit-font}’ invalid"
+
+  @if $unit-line
+    @if type-of($unit-line) == "number" and unit($unit-line) == "px"
+      +rem-rule(line-height, $unit-line)
+
+    @else if type-of($unit-line) == "string"
+      @if map-has-key($all-line-heights, $unit-line)
+        +rem-rule(line-height, map-get($all-line-heights, $unit-line))
+      @else
+        @warn "size ‘#{$unit-line}’ does not exist"
+
+    @else
+      @warn "size ‘#{$unit-line}’ invalid"
+
+  @else
+    @if type-of($unit-font) == "string"
+      @if map-has-key($all-line-heights, $unit-font)
+        +rem-rule(line-height, map-get($all-line-heights, $unit-font))

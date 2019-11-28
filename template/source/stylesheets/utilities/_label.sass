@@ -1,0 +1,29 @@
+// Bemo label utilities to generate label with bg or badge for notifications
+//
+// @example usage:
+//  span.label--red
+//  span.label--blue--rounded
+
+.label
+  +horizontal-padding(0.6)
+  +font-size(smallprint)
+  +vertical-padding(0.1)
+  background-color: $label-body-color
+  color: $label-base-color
+  display: inline-block
+
+  & + &
+    margin-left: $label-margin-left
+
+@if $enable-label-colored
+  @each $color, $value in $all-colors
+    .label--#{$color}
+      @extend .label
+      +bg-variant($color)
+      color: color-invert($value)
+      @supports (--css: variables)
+        background-color: var(--color-#{$color})
+
+    .label--#{$color}-rounded
+      @extend .label--#{$color}
+      border-radius: $label-border-radius

@@ -1,0 +1,21 @@
+// Bemo Empty component
+//
+// @example usage:
+//  .empty
+//    .empty__title
+//    .empty__subtitle
+//    .empty__action
+
+.empty
+  +padding(2)
+  background: $empty-body-color
+  border-radius: $empty-border-radius
+  color: $empty-color-base
+  text-align: center
+
+.empty__title,
+.empty__subtitle
+  margin: $empty-margin-text auto
+
+.empty__action
+  margin-top: $empty-margin-action

@@ -1,0 +1,31 @@
+// Bemo canvas component
+//
+// @example usage:
+//  .canvas
+//    .canvas__main
+//    .canvas__aside
+
+.canvas
+  overflow: hidden
+  position: relative
+
+  &.is-shifted
+    +position(fixed, 0 0 0 0)
+
+.canvas__main
+  +base-transition("material", "advanced")
+
+.canvas__aside
+  +position(absolute, 0 null 0 null)
+  background-color: $gray-color
+  box-shadow: 0 0 0 transparent
+  overflow-y: auto
+  transition: transform 0.5s cubic-bezier(.55,0,.1,1), box-shadow 0.5s cubic-bezier(.55,0,.1,1)
+  z-index: 12
+
+.canvas__aside--left
+  @extend .canvas__aside
+  .canvas.is-shifted &
+    box-shadow: 3px 0 5px rgba($gray-color, 0.5)
+
++canvas-layout(100%, "left")

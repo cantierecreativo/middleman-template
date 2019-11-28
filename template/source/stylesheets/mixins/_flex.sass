@@ -1,0 +1,31 @@
+@mixin flex
+  display: flex
+  flex: 0 1 auto
+  flex-direction: row
+  flex-wrap: wrap
+  letter-spacing: -1000em
+  margin: 0 (-$flex-gutter / 2)
+
+@mixin flex-item
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  flex-basis: auto
+  flex-grow: 0
+  flex-shrink: 1
+  letter-spacing: 0
+  padding: 0 $flex-gutter / 2
+  width: 100%
+
+@mixin flex-width-setup($namespace: "")
+  .#{$namespace}fill
+    flex: 0 0 100%
+    flex-basis: 100%
+    max-width: 100%
+
+  @each $total in $flex-cols
+    @for $size from 1 to $total
+      .#{$namespace}#{$size}-#{$total}
+        flex: 0 0 percentage($size / $total)
+        flex-basis: percentage($size / $total)
+        max-width: percentage($size / $total)

@@ -1,0 +1,58 @@
+// Bemo Table component
+//
+
+.table
+  background-color: $table-bg // Reset for nesting within parents with `background-color`.
+  border: $table-border-width solid $table-border-color
+  border-collapse: collapse
+  color: $table-color
+  margin-bottom: $table-gutter
+  table-layout: auto
+  width: 100%
+
+  th, td
+    border-top: $table-border-width solid $table-border-color
+    padding: $table-cell-padding
+    vertical-align: top
+
+  thead th
+    border-bottom: (2 * $table-border-width) solid $table-border-color
+    text-align: left
+    vertical-align: bottom
+
+  tbody + tbody
+    border-top: (2 * $table-border-width) solid $table-border-color
+
+.table--fixed
+  @extend .table
+  table-layout: fixed
+
+// Border versions
+//
+// Add or remove borders all around the table and between all the columns.
+
+.table---bordered
+  @extend .table
+  border: $table-border-width solid $table-border-color
+
+  th, td
+    border: $table-border-width solid $table-border-color
+
+  thead
+    th, td
+      border-bottom-width: 2 * $table-border-width
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table--striped
+  @extend .table
+  tbody tr:nth-of-type(#{$table-striped-order})
+    background-color: $table-accent-bg
+
+.table--scrollable
+  @extend .table
+  display: block
+  overflow-x: auto
+  white-space: nowrap

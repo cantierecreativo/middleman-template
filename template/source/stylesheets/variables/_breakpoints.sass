@@ -1,0 +1,10 @@
+// Bemo variables for Breakpoint mixin
+//
+
+$breakpoint-widths: () !default
+$breakpoint-widths: map-merge(("palm": 0px, "tab": 480px, "lap": 720px, "desk": 1024px, "monitor": 1280px, "wall": 1440px, "full": 1920px), $breakpoint-widths)
+
+// derived variables
+$breakpoint-names: breakpoint-names($breakpoint-widths)
+$breakpoint-media-queries: breakpoint-media-queries($breakpoint-widths)
+$breakpoint-inverse-media-queries: breakpoint-inverse-media-queries($breakpoint-widths)

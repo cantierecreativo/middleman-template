@@ -1,0 +1,37 @@
+// Font Family
+//
+// To use the font-family
+// options
+// Typeface: String
+// font-weight: [100..900] | normal | bold
+// letter-spacing: Integer
+// font-style: normal | italic | oblique
+// text-align: left | right | center | justify
+// text-transform: none | capitalize
+// word-spacing: normal | Integer
+// word-break: normal | break-all
+// white-space: normal | no-wrap | pre | pre-wrap | pre-line
+// text-decoration: none | underline
+// text-indent: Integer
+// text-overflow: clip | ellipsis
+
+@mixin font-family($typeface: "Helvetiva Neue", $font-weight: normal, $letter-spacing: normal, $font-style: normal, $text-align: left, $text-transform: none, $word-spacing: normal, $word-break: normal, $white-space: normal, $text-decoration: none, $text-indent: 0, $text-overflow: false)
+  font-family: $typeface
+  font-style: $font-style
+  font-weight: $font-weight
+  letter-spacing: $letter-spacing
+  text-align: $text-align
+  text-decoration: $text-decoration
+  text-indent: $text-indent
+  @if $text-overflow
+    text-overflow: $text-overflow
+  text-transform: $text-transform
+  white-space: $white-space
+  word-break: $word-break
+  word-spacing: $word-spacing
+
+@mixin body-font-family
+  +font-family($body-font-family, $body-font-weight)
+
+@mixin monospaced-font-family
+  +font-family($monospaced-font-family, $monospaced-font-weight)

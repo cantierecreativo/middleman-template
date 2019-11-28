@@ -1,0 +1,95 @@
+// Bemo Gauge component
+//
+// @example usage:
+//  .gauge.gauge-50
+//    span= 50%
+//    .gauge__slice
+//      .gauge__bar{--success}
+//      .gauge__fill{--success}
+
+.gauge
+  background-color: $gauge-background-color
+  border-radius: 50%
+  font-size: 80px
+  height: 1em
+  position: relative
+  width: 1em
+  span
+    +font-size(smallprint, 80px)
+    +position(absolute, 0 null null 0)
+    color: $black-color
+    display: block
+    font-weight: bold
+    text-align: center
+    white-space: nowrap
+    width: 100%
+    z-index: 1
+  &::after
+    +position(absolute, $gauge-width null null $gauge-width)
+    background-color: $gauge-background-color
+    border-radius: 50%
+    content: ""
+    display: block
+    height: 1 - (2 * $gauge-width)
+    width: 1 - (2 * $gauge-width)
+
+.gauge--large
+  @extend .gauge
+  font-size: 120px
+  span
+    +font-size(regular, 120px)
+
+.gauge__slice
+  clip: rect(0em, 1em, 1em, 0.5em)
+  height: 1em
+  position: absolute
+  width: 1em
+
+.gauge__bar, .gauge__fill
+  border-color: $gauge-border-color
+  border-radius: 50%
+  border-style: solid
+  border-width: $gauge-width
+  clip: rect(0em, 0.5em, 1em, 0em)
+  height: 100%
+  position: absolute
+  width: 100%
+
+@if $enable-gauge-colored
+  @each $color, $value in $all-colors
+    .gauge__bar--#{$color}
+      @extend .gauge__bar
+      border-color: $value
+      @supports (--css: variables)
+        border-color: var(--color-#{$color})
+
+.gauge-rect-auto
+  clip: rect(auto, auto, auto, auto)
+
+.gauge-rotate-fill
+  transform: rotate(180deg)
+
+// loop to create all needed elements automatically
+@for $i from 51 through 100
+  .gauge--#{$i} .gauge__slice
+    @extend .gauge-rect-auto
+
+  .gauge--#{$i} .gauge__bar::after
+    @extend .gauge-rotate-fill
+
+  .gauge--#{$i} .gauge__fill
+    @extend .gauge-rotate-fill
+
+@if $enable-gauge-colored
+  @each $color, $value in $all-colors
+    .gauge__fill--#{$color}
+      @extend .gauge__fill
+      border-color: $value
+      @supports (--css: variables)
+        border-color: var(--color-#{$color})
+
+// loop to rotate all 100 circles
+@for $i from 1 through 100
+  .gauge--#{$i} .gauge__bar
+    $rotate: 360/100*$i
+    transform: rotate(#{$rotate}deg)

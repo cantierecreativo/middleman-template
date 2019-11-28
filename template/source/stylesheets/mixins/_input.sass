@@ -1,0 +1,10 @@
+// sass-lint:disable indentation
+@mixin input-placeholder
+  &.placeholder
+    @content
+
+  &:-moz-placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder,
+  &::-webkit-input-placeholder
+    @content

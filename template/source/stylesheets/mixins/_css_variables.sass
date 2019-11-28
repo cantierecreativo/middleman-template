@@ -1,0 +1,7 @@
+// Use if browser support css variables
+//
+// sass-lint:disable-all
+@mixin root-var($maps, $prefix)
+  @each $name, $value in $maps
+    --#{$prefix}-#{$name}: #{$value}
+// sass-lint:enable-all

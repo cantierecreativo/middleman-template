@@ -1,0 +1,52 @@
+@each $amount in $space-amounts
+  .margin--all-#{$amount}
+    +space-rule("margin", $amount)
+  .padding--all-#{$amount}
+    +space-rule("padding", $amount)
+
+  .margin--both-#{$amount}
+    +space-rule("margin-top", $amount)
+    +space-rule("margin-bottom", $amount)
+  .padding--both-#{$amount}
+    +space-rule("padding-top", $amount)
+    +space-rule("padding-bottom", $amount)
+
+@each $direction in $space-directions
+  @each $amount in $space-amounts
+    .margin--#{$direction}-#{$amount}
+      +space-rule("margin-#{$direction}", $amount)
+    .padding--#{$direction}-#{$amount}
+      +space-rule("padding-#{$direction}", $amount)
+
+@each $name in $space-breakpoints
+  +at-breakpoint($name)
+    @each $amount in $space-amounts
+      .margin--both-#{$amount}-on-#{$name}
+        +space-rule("margin-top", $amount)
+        +space-rule("margin-bottom", $amount)
+      .padding--both-#{$amount}-on-#{$name}
+        +space-rule("padding-top", $amount)
+        +space-rule("padding-bottom", $amount)
+
+    @each $direction in $space-directions
+      @each $amount in $space-amounts
+        .margin--#{$direction}-#{$amount}-on-#{$name}
+          +space-rule("margin-#{$direction}", $amount)
+        .padding--#{$direction}-#{$amount}-on-#{$name}
+          +space-rule("padding-#{$direction}", $amount)
+
+@each $space, $size in $space-sizes
+  .space--#{$space}-w
+    width: $size
+
+  .space--#{$space}-h
+    height: $size
+
+@each $name in $space-breakpoints
+  +at-breakpoint($name)
+    @each $space, $size in $space-sizes
+      .space--#{$space}-w-on-#{$name}
+        width: $size
+
+      .space--#{$space}-h-on-#{$name}
+        height: $size

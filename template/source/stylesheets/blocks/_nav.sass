@@ -1,0 +1,110 @@
+// Bemo Nav component to generate navigation menu
+//
+// @example usage:
+//  .nav{--black}
+//    .nav__toggler
+//      .nav__toggler__box
+//    .nav__left
+//      .nav__logo
+//    .nav__right
+//      .nav__menu
+//        .nav__menu__item
+//          .nav__menu__link
+
+.nav
+  align-items: stretch
+  background: $nav-body-color
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+@if $enable-nav-colored
+  @each $color, $value in $all-colors
+    .nav--#{$color}
+      @extend .nav
+      +bg-variant($color)
+      color: color-invert($value)
+      @supports (--css: variables)
+        background-color: var(--color-#{$color})
+      .nav__menu__link
+        color: color-invert($value)
+
+.nav__toggler
+  +padding(1)
+  +base-transition("material", "base")
+  background: $base-body-color
+  cursor: pointer
+  display: inline-block
+  font: inherit
+  height: 60px
+  position: relative
+  width: 60px
+
+.nav__toggler__box
+  +position(absolute, 14px null null 0.8rem)
+  +base-transition("material", "base")
+  background-color: $base-body-background
+  border-radius: 4px
+  height: 2px
+  width: 60%
+  &::before,
+  &::after
+    +base-transition("material", "base")
+    background-color: $base-body-background
+    border-radius: 4px
+    content: ''
+    display: block
+    height: 2px
+    width: 100%
+  &::before
+    +position(absolute, 14px null null 0)
+  &::after
+    +position(absolute, 28px null null 0)
+
+  .is-shifted &
+    +base-transition("material", "base")
+    transform: translate3d(0,14px,0) rotate(45deg)
+    &::before
+      +base-transition("material", "base")
+      opacity: 0
+      transform: rotate(-45deg) translate3d(-5.71429px,-6px,0)
+    &::after
+      +base-transition("material", "base")
+      transform: translate3d(0,-28px,0) rotate(-90deg)
+
+.nav__left,
+.nav__right
+  align-items: center
+  display: flex
+  flex: 1 0 0
+
+.nav__left
+  justify-content: flex-start
+
+.nav__logo
+  +font-size(beta)
+  +margin-right(2)
+  display: block
+
+.nav__right
+  justify-content: flex-end
+
+.nav__menu
+  display: none
+  list-style: none
+
+.nav__menu__item
+  +horizontal-margin(1)
+  +font-size(delta)
+  display: inline-block
+
+.nav__menu__link
+  +padding(1)
+  display: block
+
++at-breakpoint(desk)
+  .nav__toggler
+    display: none
+
+  .nav__menu
+    display: inline-block

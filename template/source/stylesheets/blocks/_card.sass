@@ -1,0 +1,55 @@
+// Bemo Card component to generate vertical element with image and content
+//
+// @example usage:
+//  .card{--black}
+//    .card__image
+//    .card__header
+//      .card__header__title
+//      .card__header__subtitle
+//    .card__body
+//    .card__footer
+
+.card
+  background-color: $base-body-background
+  box-shadow: $card-base-shadow
+  max-width: 100%
+  position: relative
+
+@if $enable-card-colored
+  @each $color, $value in $all-colors
+    .card--#{$color}
+      @extend .card
+      +bg-variant($color)
+      color: color-invert($value)
+      @supports (--css: variables)
+        background-color: var(--color-#{$color})
+
+.card__image
+  display: block
+  position: relative
+
+.card__header
+  +padding(1)
+  +padding-bottom(0)
+  align-items: stretch
+  display: flex
+  flex-direction: column
+
+.card__header__title
+  +font-size(gamma)
+  align-items: center
+  display: flex
+  flex-grow: 1
+
+.card__header__subtitle
+  +font-size(smallprint)
+  display: flex
+
+.card__body
+  +padding(1)
+  +padding-bottom(0)
+
+.card__footer
+  +padding(1)
+  align-items: stretch
+  display: flex

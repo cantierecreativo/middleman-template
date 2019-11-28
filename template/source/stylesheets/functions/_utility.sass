@@ -1,0 +1,14 @@
+@function removeUnit($val)
+  @return $val / ($val * 0 + 1)
+
+@function calc-percent($target, $container)
+  @return ($target / $container) * 100%
+
+@function round-decimals($number)
+  @return round($number * 100000) / 100000
+
+@function max($numbers...)
+  @return m#{a}x(#{$numbers})
+
+@function min($numbers...)
+  @return m#{i}n(#{$numbers})

@@ -1,0 +1,25 @@
+// Bemo img classes
+//
+// @example usage:
+//  img.img--cover
+//  img.img--rounded
+
+.img--fluid
+  display: block
+  height: auto
+  max-width: 100%
+
+.img--rounded
+  @extend .img--fluid
+  border-radius: 50%
+
+@supports (object-fit: contain)
+  .img--contain
+    object-fit: contain
+    object-position: 50% 50%
+
+@supports (object-fit: cover)
+  .img--cover
+    object-fit: cover
+    object-position: 50% 50%
+

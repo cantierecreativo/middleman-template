@@ -3,7 +3,7 @@ nav.site-nav
     .site-nav__inner
       = link_to "#",
         class: "site-nav__menu-toggler js-nav-toggler--left" do
-        i.icon--hamburger
+        = i("hamburger")
       .site-nav__left
         = link_to locale_path("/"),
           class: "site-nav__logo",

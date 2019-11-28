@@ -1,0 +1,53 @@
+// Bemo Dialog component
+//
+
+.dialog
+  display: none
+
+  &.is-active
+    display: block
+
+  &::before
+    +position(fixed, 0 null null 0)
+    background-color: $dialog-opacity-background
+    content: ""
+    height: 100%
+    width: 100%
+    z-index: 1001
+
+.dialog__frame
+  +center(fixed)
+  -webkit-overflow-scrolling: touch
+  background-color: white
+  box-sizing: border-box
+  left: 50%
+  max-height: 90%
+  max-width: 60rem
+  overflow-y: auto
+  top: 50%
+  width: 90%
+  z-index: 1002
+
+.dialog__header
+  +font-size(alpha)
+  +padding(2)
+
+@if $enable-dialog-colored
+  @each $color, $value in $all-colors
+    .dialog__header--#{$color}
+      @extend .dialog__header
+      +bg-variant($color)
+      color: color-invert($value)
+      @supports (--css: variables)
+        background-color: var(--color-#{$color})
+
+.dialog__body
+  +horizontal-padding(2)
+
+.dialog__footer
+  +padding(2)
+  text-align: center
+
+.dialog__close
+  +position(absolute, 0 0 null null)
+  +padding(2)

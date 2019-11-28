@@ -1,13 +1,13 @@
 = link_to "#",
   class: "aside-nav__menu-toggler js-nav-close" do
-  i.icon--cross
+  = i("cross")
 
 .aside-nav
   .aside-nav__inner
     ul.aside-nav__menu
       li.aside-nav__menu__item
         = active_link_to t('nav.home'),
-          "/#{I18n.locale}",
+          locale_path("/"),
           class: "aside-nav__menu__link"
 
       - site_nav_menu.each do |page|

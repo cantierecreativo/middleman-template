@@ -1,0 +1,17 @@
+// Contextual backgrounds
+
+@mixin bg-variant($color)
+  @if map-has-key($all-colors, $color)
+    background-color: map-get($all-colors, $color)
+    @supports (--css: variables)
+      background-color: var(--color-#{$color})
+  @else
+    @warn "Color `#{$color}` does not exist"
+
+@mixin bg-variant-gradient($first-color, $last-color, $angle: 180deg, $first-step: 0%, $last-step: 100%)
+  @if map-has-key($all-colors, $first-color) AND map-has-key($all-colors, $last-color)
+    background: $first-color linear-gradient($angle, map-get($all-colors, $first-color) $first-step, map-get($all-colors, $last-color) $last-step)
+    @supports (--css: variables)
+      background: var(--color-#{$first-color}) linear-gradient($angle, var(--color-#{$first-color}) $first-step, var(--color-#{$last-color}) $last-step)
+  @else
+    background: $first-color linear-gradient($angle, $first-color $first-step, $last-color $last-step)

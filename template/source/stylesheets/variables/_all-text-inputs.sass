@@ -1,0 +1,15 @@
+// Bemo variables for Input mixin
+//
+$inputs-list: '[type="email"]', '[type="number"]', '[type="password"]', '[type="search"]', '[type="tel"]', '[type="text"]', '[type="url"]', '[type="color"]', '[type="date"]', '[type="datetime"]', '[type="datetime-local"]', '[type="month"]', '[type="time"]', '[type="week"]' !default
+
+// derived variables
+$all-text-inputs: assign-inputs($inputs-list) !default
+$all-text-inputs-hover: assign-inputs($inputs-list, hover) !default
+$all-text-inputs-focus: assign-inputs($inputs-list, focus) !default
+
+// derived variables
+$inputs-button-list: 'input[type="button"]', 'input[type="reset"]', 'input[type="submit"]' !default
+$all-button-inputs: assign-inputs($inputs-button-list) !default
+$all-button-inputs-hover: assign-inputs($inputs-button-list, hover) !default
+$all-button-inputs-focus: assign-inputs($inputs-button-list, focus) !default
+$all-button-inputs-active: assign-inputs($inputs-button-list, active) !default

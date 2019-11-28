@@ -1,0 +1,53 @@
+// Bemo Hero component to generate header section with base background
+// all the content is centered with display table and table-cell
+//
+// @example usage:
+//  .hero{--black}
+//    .hero__body
+//      .hero__body__inner
+//        .hero__heading
+//        .hero__text
+//        .hero__text
+//        .hero__actions
+
+.hero
+  background-color: $hero-body-color
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  position: relative
+
+@if $enable-hero-colored
+  @each $color, $value in $all-colors
+    .hero--#{$color}
+      @extend .hero
+      +bg-variant($color)
+      color: color-invert($value)
+      @supports (--css: variables)
+        background-color: var(--color-#{$color})
+
+.hero__body
+  display: table
+  text-align: center
+  width: 100%
+
+.hero__body__inner
+  +vertical-padding(4)
+  display: table-cell
+  vertical-align: middle
+
+.hero__heading
+  +font-size(alpha)
+  line-height: 1.2
+  margin-left: auto
+  margin-right: auto
+  max-width: 80rem
+
+.hero__text
+  +margin-top(2)
+  margin-left: auto
+  margin-right: auto
+  max-width: 75rem
+
+.hero__actions
+  +margin-top(2)

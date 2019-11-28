@@ -1,0 +1,46 @@
+// Bemo Pagination component
+//
+
+.page
+  +vertical-padding(1)
+  align-items: center
+  display: flex
+  justify-content: center
+  margin: -0.25rem
+  text-align: center
+
+.page__list
+  align-items: center
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  order: 2
+  text-align: center
+
+.page__link,
+.page__previous,
+.page__next
+  +padding(0.5)
+  border-color: $base-body-color
+  justify-content: center
+  text-align: center
+  text-decoration: underline
+  &.is-current
+    text-decoration: none
+
+.page__ellipsis
+  pointer-events: none
+
+.page__previous,
+.page__next
+  padding-left: 0.75em
+  padding-right: 0.75em
+  white-space: nowrap
+
+.page__previous
+  display: flex
+  order: 1
+
+.page__next
+  display: flex
+  order: 3

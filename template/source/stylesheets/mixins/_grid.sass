@@ -1,0 +1,36 @@
+@mixin grid
+  letter-spacing: -1000em
+  list-style: none
+  margin-left: -$grid-gutter
+  margin-right: 0
+  padding-left: 0
+  padding-right: 0
+
+@mixin grid-item
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  display: inline-block
+  letter-spacing: 0
+  padding-left: $grid-gutter
+  vertical-align: top
+  width: 100%
+
+@mixin grid-width-setup($namespace: "")
+  .#{$namespace}fill
+    width: 100%
+
+  @each $total in $grid-cols
+    @for $size from 1 to $total
+      .#{$namespace}#{$size}-#{$total}
+        width: round-decimals($size / $total * 100%)
+
+@mixin grid-shift-setup($rule, $namespace: "")
+  .#{$namespace}0
+    #{$rule}: 0
+
+  @each $total in $grid-cols
+    @for $size from 1 to $total
+      .#{$namespace}#{$size}-#{$total}
+        position: relative
+        #{$rule}: round-decimals($size / $total * 100%)

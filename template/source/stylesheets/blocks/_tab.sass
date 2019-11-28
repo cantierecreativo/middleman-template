@@ -1,0 +1,38 @@
+// Bemo Tab component
+//
+// @example usage:
+//  .tab
+//    .tab__item
+//      .tab__item__link
+//    .tab__content
+//      .tab__content__item
+
+.tab
+  +margin-bottom(1)
+  border-bottom: $tab-border-width solid $tab-border-color
+  list-style: none
+
+.tab__item
+  border-bottom: $tab-border-width solid $tab-border-color
+  margin-top: 0
+
+.tab__item__link
+  +padding(1)
+  display: inline-block
+  &:hover
+    border-bottom: $tab-border-width solid $black-color
+    color: $black-color
+    text-decoration: none
+  &.is-active
+    border-bottom: $tab-border-width solid $black-color
+    color: $black-color
+
+.tab__content
+  +padding(1)
+  +bg-variant("white")
+  display: block
+
+.tab__content__item
+  display: none
+  &.is-active
+    display: block

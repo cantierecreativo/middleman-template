@@ -1,0 +1,27 @@
+// Arrows utilities to generate angle css based
+
+.angle
+  +position(absolute, 0 null null 0)
+  display: block
+  height: 0.5rem
+  margin: 0 0.3rem
+  width: 1rem
+  z-index: 1
+
+  &::before,
+  &::after
+    border-color: transparent
+    border-style: solid
+    content: ""
+    display: block
+    position: absolute
+
+  &::before
+    border-bottom-color: $gray-color
+    border-width: 0 0.5rem 0.5rem 0.5rem
+    top: 0
+
+  &::after
+    border-bottom-color: $white-color
+    border-width: 0 0.5rem 0.5rem 0.5rem
+    top: 1px

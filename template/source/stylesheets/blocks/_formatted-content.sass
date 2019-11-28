@@ -1,0 +1,39 @@
+.formatted-content
+  h1, h2, h3, h4, h5, h6, hgroup,
+  ul, ol, dd, p, figure, pre, table,
+  fieldset, hr, form, blockquote
+    +margin-bottom(1)
+
+    &:last-child
+      margin-bottom: 0
+
+  ul, ol
+    +padding-left(2)
+
+  ul li
+    list-style-type: disc
+
+  ol li
+    list-style-type: decimal
+
+  h1, h2, h3, h4, h5, h6
+    +margin-top(2)
+
+    &:first-child
+      margin-top: 0
+
+  @for $i from 1 through 6
+    h#{$i}
+      $index: $i
+
+      @if $i > length($font-sizes)
+        $index: length($font-sizes)
+
+      $size: nth(map-values($font-sizes), $index)
+      +rem-rule(font-size, $size)
+
+  blockquote
+    +padding(0.4)
+    border-left: 0.1rem solid $gray-color
+    font-style: italic
+    position: relative

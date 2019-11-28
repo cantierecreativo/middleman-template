@@ -1,0 +1,14 @@
+// Transition and animation
+// sass-lint:disable indentation
+@mixin base-transition($easing, $propriety: 'base')
+  @if type-of($easing) == "string"
+    @if map-has-key($transition-functions, $easing)
+      @if $propriety == 'base'
+        transition: $transition-base map-get($transition-functions, $easing)
+      @else
+        transition: $transition-advanced map-get($transition-functions, $easing)
+    @else
+      @warn "easing ‘#{$easing}’ does not exist"
+
+  @else
+    @warn "easing ‘#{$easing}’ invalid"
