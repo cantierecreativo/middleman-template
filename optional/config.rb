@@ -1,4 +1,5 @@
-require "lib/middleman_template_helpers"
+require "lib/path_helpers"
+require "lib/image_helpers"
 
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -49,7 +50,8 @@ configure :development do
 end
 
 helpers do
-  include MiddlemanTemplateHelpers
+  include PathHelpers
+  include ImageHelpers
 
   # Custom helper to theme
   def site_nav_menu
