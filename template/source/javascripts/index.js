@@ -1,7 +1,6 @@
-var $ = require("jquery");
-global.jQuery = $;
-
 require("@fancyapps/fancybox");
+require("jquery");
+
 import modernizr from 'modernizr';
 import slick from 'slick-carousel';
 import anime from 'animejs/lib/anime';
