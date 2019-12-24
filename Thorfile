@@ -54,7 +54,7 @@ module Middleman
         run "git remote add production #{@production}"
       end
       run "git add ."
-      run "git commit -m 'Boostrap project with template'"
+      run "git commit -m 'Bootstrap project with template'"
     end
   end
 end
