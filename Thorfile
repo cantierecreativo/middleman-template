@@ -12,7 +12,7 @@ module Middleman
       @base_url = ask('What will be the base url of your site? (e.g. https://www.mysite.com)')
 
       @origin = ask('What is the origin remote? (e.g. git@gitlab.com:cantierecreativo/PROJECT.git)')
-      @production = ask('What is the production remote? (e.g. git@gitlab.com:cantierecreativo/PROJECT.git)')
+      @production = ask('What is the production remote? (e.g. git@gitlab.com:cantierecreativo/PROJECT.git), press ENTER if not needed')
     end
 
     def copy_default_files
