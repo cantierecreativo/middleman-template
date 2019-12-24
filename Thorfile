@@ -7,12 +7,12 @@ module Middleman
     source_root File.expand_path(File.dirname(__FILE__))
 
     def ask_stuff
-      @langs = ask('Please insert your site langs: (es. it,en)')
+      @langs = ask('Please insert your site langs: (e.g. it,en)')
       @token = ask('Please insert your DatoCMS site read-only token:')
-      @base_url = ask('What will be the base url of your site? (eg. https://www.mysite.com)')
+      @base_url = ask('What will be the base url of your site? (e.g. https://www.mysite.com)')
 
-      @origin = ask('What is the origin remote? (eg. git@gitlab.com:cantierecreativo/PROJECT.git)')
-      @production = ask('What is the production remote? (eg. git@gitlab.com:cantierecreativo/PROJECT.git)')
+      @origin = ask('What is the origin remote? (e.g. git@gitlab.com:cantierecreativo/PROJECT.git)')
+      @production = ask('What is the production remote? (e.g. git@gitlab.com:cantierecreativo/PROJECT.git)')
     end
 
     def copy_default_files
