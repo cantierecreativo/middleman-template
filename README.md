@@ -6,97 +6,116 @@ to [Netlify].
 [cantierecreativo]: https://cantierecreativo.net/
 [Netlify]: https://www.netlify.com/
 
-## Requirements
+# Requirements
 
-This project requires [Node.js](https://nodejs.org/) (v9.3.0) with 
+This project requires [Node.js](https://nodejs.org/) (v9.3.0) with
 [yarn](https://yarnpkg.com/) and [Ruby](https://ruby-lang.org) (v2.6.2)
 
-## Usage
+# Usage
 
 1. Install or set Ruby (2.6.2) with RBENV:
 
-```
+```sh
 $ rbenv install/set 2.6.2
 ```
 
 2. Install or use Middleman gem:
 
-```
+```sh
 $ gem install middleman
 ```
 
 3. Install or set Node (9.3.0) with NVM:
 
-```
+```sh
 $ nvm install/use 9.3.0
 ```
 
 4. Then run:
 
-```
+```sh
 $ middleman init project -T=cantierecreativo/middleman-template
 ```
 
-## Configuration
+# Configuration
 
-The template init scripts asks you for the follwoing information:
+The template init scripts asks you for the following information:
 
-- Languages string (it,en)
-- DatoCMS read-only API token (from DatoCMS settings -> API Tokens)
-- Base URL of site (https://sitedomain.ext)
-- Remote git repository to store ORIGIN
-- Remote git repository to store PRODUCTION and Netlify buildable files
+- Languages string, this should be a comma-separated list of locales,
+  e.g. "it,en",
+- DatoCMS read-only API token (from DatoCMS settings -> API Tokens),
+- Base URL of the site (e.g. `https://sitedomain.ext`),
+- Git origin repository,
+- Git repository that triggers builds (optional).
 
 After these questions, the init script installs all dependencies and creates
-the complete directory site.
+the project directories.
 
-You should change the default data in `data/config.json` and create the proxy
-routing for the new site.
+Configuration is held in 3 files:
+
+* `config.rb` - Middleman project cofig,
+* `data/config.json` - global settings used in project templates,
+*`.env` - environment variables and secrets.
 
 The final directory structure is:
 
 ```
 project/
-+-- .gitignore
++-- config/
+|   +-- i18n-tasks.yml
++-- config.rb
++-- data/
+|   +-- config.json
++-- .env                                - environment variables for development
 +-- Gemfile
 +-- Gemfile.lock
-+-- config.rb
-+-- package.json
-+-- webpack.config.js
-+-- yarn.lock
-+-- config
-|   +-- i18n-tasks.yml
-+-- data
-|   +-- config.json
-+-- locales
++-- .gitignore
++-- locales/
 |   +-- it.yml
 |   +-- en.yml
-+-- source
-    +-- images/
-    +-- fonts/
-    +-- localizable/
-    |   +-- index.html.slim
-    +-- partials/
-    +-- templates
-    |   +-- browserconfig.xml.erb
-    |   +-- redirects.txt.erb
-    |   +-- site.webmanifest.erb
-    |   +-- contact_page.html.slim
-    +-- 404.html.slim
-    +-- index.html.erb
-    +-- javascripts
-    ¦   +-- index.js
-    +-- layouts
-    ¦   +-- layout.slim
-    +-- stylesheets
-        +-- _application.sass
++-- package.json
++-- README.md
++-- source/
+|   +-- 404.html.slim
+|   +-- fonts/
+|   +-- images/
+|   +-- index.html.erb
+|   +-- localizable/
+|   |   +-- index.html.slim
+|   +-- partials/
+|   +-- javascripts/
+|   ¦   +-- index.js
+|   +-- layouts/
+|   ¦   +-- layout.slim
+|   +-- stylesheets/                    - a default BEMO2 setup
+|   +-- templates/
+|       +-- browserconfig.xml.erb
+|       +-- redirects.txt.erb
+|       +-- site.webmanifest.erb
+|       +-- contact_page.html.slim
++-- webpack.config.js
++-- yarn.lock
 ```
 
-* To see the list of helpers in the system read [HELPERS.md](HELPERS.md)
+* To see the list of helpers in the system check the files under `/lib`.
+
 * To see examples of code (JS and CSS) that the template exposes read
 [EXAMPLE.md](EXAMPLE.md)
 
-## Features and Tools
+# Development
+
+Start the project in development mode as follows:
+
+```sh
+$ middleman
+```
+
+# Deployment
+
+On Netlify, set up production environment variables - there should be
+the same items that are present in `.env`.
+
+# Features and Tools
 
 This template comes with the following features and tools:
 
