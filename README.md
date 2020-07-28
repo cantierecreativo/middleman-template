@@ -13,10 +13,10 @@ This project requires [Node.js](https://nodejs.org/) (v9.3.0) with
 
 # Usage
 
-1. Install or set Ruby (2.6.2) with RBENV:
+1. Install or set Ruby (2.6.2) with ASDF:
 
 ```sh
-$ rbenv install/set 2.6.2
+$ asdf shell ruby 2.6.2
 ```
 
 2. Install or use Middleman gem:
@@ -25,11 +25,7 @@ $ rbenv install/set 2.6.2
 $ gem install middleman
 ```
 
-3. Install or set Node (9.3.0) with NVM:
-
-```sh
-$ nvm install/use 9.3.0
-```
+3. Install or set Node (9.3.0):
 
 4. Then run:
 
